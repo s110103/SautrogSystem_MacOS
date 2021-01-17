@@ -1,0 +1,53 @@
+PODS:
+  - Alamofire (5.4.0)
+  - CNIOAtomics (2.25.1)
+  - CNIODarwin (2.25.1)
+  - CNIOLinux (2.25.1)
+  - CNIOSHA1 (2.25.1)
+  - CNIOWindows (2.25.1)
+  - NSGradientView (0.0.1)
+  - SwiftNIO (2.25.1):
+    - CNIOAtomics (= 2.25.1)
+    - CNIODarwin (= 2.25.1)
+    - CNIOLinux (= 2.25.1)
+    - CNIOSHA1 (= 2.25.1)
+    - CNIOWindows (= 2.25.1)
+    - SwiftNIOConcurrencyHelpers (= 2.25.1)
+  - SwiftNIOConcurrencyHelpers (2.25.1):
+    - CNIOAtomics (= 2.25.1)
+  - SwiftyJSON (5.0.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - NSGradientView
+  - SwiftNIO
+  - SwiftyJSON
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - CNIOAtomics
+    - CNIODarwin
+    - CNIOLinux
+    - CNIOSHA1
+    - CNIOWindows
+    - NSGradientView
+    - SwiftNIO
+    - SwiftNIOConcurrencyHelpers
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
+  CNIOAtomics: 2ae668942b9e7ac71e0fe286d11ac9b4fe329024
+  CNIODarwin: 3874630a0e3506c3e86f272ad436103d27055831
+  CNIOLinux: e6394d7fd56d36ff43ada5796e9d96c14fcb3546
+  CNIOSHA1: 43c4a0cfdea5e8be20927d9d2237ebe4233071f8
+  CNIOWindows: 89048520e4a1484bcd5e20c252edf4089913aa7d
+  NSGradientView: 221211f3b39b034e54f8faf95273e0060a55338b
+  SwiftNIO: 3f9a197581f6dfebf65a5c85099f25197d892c8c
+  SwiftNIOConcurrencyHelpers: 3670690a0fb8d8a0a4759804d07aaf89c9599839
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+
+PODFILE CHECKSUM: ad12ad0877f601cb15c36ca71efd9e964682df7b
+
+COCOAPODS: 1.10.0

@@ -1,0 +1,6 @@
+framework module NSGradientView {
+  umbrella header "NSGradientView-umbrella.h"
+
+  export *
+  module * { export * }
+}
