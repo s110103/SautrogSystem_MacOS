@@ -3,27 +3,35 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0671A1C625B4AD5A002C3635 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0671A1C525B4AD5A002C3635 /* AppDelegate.swift */; };
-		0671A1C825B4AD5A002C3635 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0671A1C725B4AD5A002C3635 /* ViewController.swift */; };
 		0671A1CB25B4AD5A002C3635 /* SautrogSystem.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0671A1C925B4AD5A002C3635 /* SautrogSystem.xcdatamodeld */; };
 		0671A1CD25B4AD5B002C3635 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0671A1CC25B4AD5B002C3635 /* Assets.xcassets */; };
 		0671A1D025B4AD5B002C3635 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0671A1CE25B4AD5B002C3635 /* Main.storyboard */; };
+		0671A20825B4BE4C002C3635 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0671A20625B4BE4C002C3635 /* WindowController.swift */; };
+		0671A20925B4BE4C002C3635 /* WindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0671A20725B4BE4C002C3635 /* WindowController.xib */; };
+		0671A20C25B4BE73002C3635 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0671A20B25B4BE73002C3635 /* SplitViewController.swift */; };
+		0671A21425B4D666002C3635 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0671A21325B4D666002C3635 /* HomeViewController.swift */; };
+		0671A21925B4D68C002C3635 /* RaceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0671A21725B4D68C002C3635 /* RaceListViewController.swift */; };
 		480D3267EE6E9AEE8123F534 /* Pods_SautrogSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9FD03D794157C2315E91B74 /* Pods_SautrogSystem.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0671A1C225B4AD5A002C3635 /* SautrogSystem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SautrogSystem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0671A1C525B4AD5A002C3635 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0671A1C725B4AD5A002C3635 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0671A1CA25B4AD5A002C3635 /* SautrogSystem.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SautrogSystem.xcdatamodel; sourceTree = "<group>"; };
 		0671A1CC25B4AD5B002C3635 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0671A1CF25B4AD5B002C3635 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0671A1D125B4AD5B002C3635 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0671A1D225B4AD5B002C3635 /* SautrogSystem.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SautrogSystem.entitlements; sourceTree = "<group>"; };
+		0671A20625B4BE4C002C3635 /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		0671A20725B4BE4C002C3635 /* WindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WindowController.xib; sourceTree = "<group>"; };
+		0671A20B25B4BE73002C3635 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
+		0671A21325B4D666002C3635 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		0671A21725B4D68C002C3635 /* RaceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceListViewController.swift; sourceTree = "<group>"; };
 		5D2595AC1C72335BBDD59B4C /* Pods-SautrogSystem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SautrogSystem.debug.xcconfig"; path = "Target Support Files/Pods-SautrogSystem/Pods-SautrogSystem.debug.xcconfig"; sourceTree = "<group>"; };
 		D9FD03D794157C2315E91B74 /* Pods_SautrogSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SautrogSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4BE172FFB1E7B4E8E024396 /* Pods-SautrogSystem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SautrogSystem.release.xcconfig"; path = "Target Support Files/Pods-SautrogSystem/Pods-SautrogSystem.release.xcconfig"; sourceTree = "<group>"; };
@@ -63,14 +71,34 @@
 			isa = PBXGroup;
 			children = (
 				0671A1C525B4AD5A002C3635 /* AppDelegate.swift */,
-				0671A1C725B4AD5A002C3635 /* ViewController.swift */,
+				0671A21225B4D633002C3635 /* View */,
+				0671A21025B4D62A002C3635 /* Controller */,
 				0671A1CC25B4AD5B002C3635 /* Assets.xcassets */,
-				0671A1CE25B4AD5B002C3635 /* Main.storyboard */,
 				0671A1D125B4AD5B002C3635 /* Info.plist */,
 				0671A1D225B4AD5B002C3635 /* SautrogSystem.entitlements */,
 				0671A1C925B4AD5A002C3635 /* SautrogSystem.xcdatamodeld */,
+				0671A20725B4BE4C002C3635 /* WindowController.xib */,
 			);
 			path = SautrogSystem;
+			sourceTree = "<group>";
+		};
+		0671A21025B4D62A002C3635 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0671A20B25B4BE73002C3635 /* SplitViewController.swift */,
+				0671A20625B4BE4C002C3635 /* WindowController.swift */,
+				0671A21325B4D666002C3635 /* HomeViewController.swift */,
+				0671A21725B4D68C002C3635 /* RaceListViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0671A21225B4D633002C3635 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0671A1CE25B4AD5B002C3635 /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		43B087453DB63396901024B1 /* Frameworks */ = {
@@ -87,7 +115,6 @@
 				5D2595AC1C72335BBDD59B4C /* Pods-SautrogSystem.debug.xcconfig */,
 				E4BE172FFB1E7B4E8E024396 /* Pods-SautrogSystem.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -151,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0671A1CD25B4AD5B002C3635 /* Assets.xcassets in Resources */,
+				0671A20925B4BE4C002C3635 /* WindowController.xib in Resources */,
 				0671A1D025B4AD5B002C3635 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -204,9 +232,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0671A1C825B4AD5A002C3635 /* ViewController.swift in Sources */,
 				0671A1CB25B4AD5A002C3635 /* SautrogSystem.xcdatamodeld in Sources */,
+				0671A21925B4D68C002C3635 /* RaceListViewController.swift in Sources */,
+				0671A21425B4D666002C3635 /* HomeViewController.swift in Sources */,
+				0671A20825B4BE4C002C3635 /* WindowController.swift in Sources */,
 				0671A1C625B4AD5A002C3635 /* AppDelegate.swift in Sources */,
+				0671A20C25B4BE73002C3635 /* SplitViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
