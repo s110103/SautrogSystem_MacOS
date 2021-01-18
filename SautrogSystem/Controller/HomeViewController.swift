@@ -27,5 +27,25 @@ class HomeViewController: NSViewController {
     // MARK: - Actions
     
     // MARK: - Functions
+    override func mouseUp(with event: NSEvent) {
+        let touchedPoint: CGPoint = event.locationInWindow
+                
+        if addRaceView.frame.contains(touchedPoint) {
+        }
+        
+        if openRaceView.frame.contains(touchedPoint) {
+        }
+        
+        if lockStatusImageView.frame.contains(touchedPoint) {
+            if appLocked == true {
+                appLocked = false
+                lockStatusImageView.image = NSImage(named: "NSLockUnlockedTemplate")
+            } else {
+                appLocked = true
+                lockStatusImageView.image = NSImage(named: "NSLockLockedTemplate")
+            }
+        }
+        
+    }
     
 }
