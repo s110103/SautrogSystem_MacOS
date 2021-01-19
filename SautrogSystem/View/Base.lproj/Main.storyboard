@@ -726,7 +726,7 @@
                 </splitViewController>
                 <customObject id="ATN-oh-OSt" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="717" y="257"/>
+            <point key="canvasLocation" x="718" y="242"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="PVr-GV-16d">
@@ -907,7 +907,7 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView id="eKH-T0-oAU">
+                                                        <tableCellView identifier="raceCell" id="eKH-T0-oAU" customClass="RaceListTableCellView" customModule="SautrogSystem" customModuleProvider="target">
                                                             <rect key="frame" x="18" y="0.0" width="231" height="64"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -936,13 +936,18 @@
                                                                     </textFieldCell>
                                                                 </textField>
                                                             </subviews>
+                                                            <connections>
+                                                                <outlet property="raceDocumentImageView" destination="USU-bX-UIW" id="Ehu-qT-WQ9"/>
+                                                                <outlet property="raceNameTextField" destination="xa5-eJ-qFA" id="Qfa-84-BZY"/>
+                                                                <outlet property="racePathTextField" destination="SQM-mz-efn" id="UaF-5F-73j"/>
+                                                            </connections>
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
                                         </tableView>
                                     </subviews>
-                                    <nil key="backgroundColor"/>
+                                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="0RH-7e-W2B">
                                     <rect key="frame" x="1" y="433" width="248" height="16"/>
@@ -957,6 +962,9 @@
                         <viewLayoutGuide key="safeArea" id="r9t-Py-9ZG"/>
                         <viewLayoutGuide key="layoutMargins" id="xu4-aH-Gbr"/>
                     </view>
+                    <connections>
+                        <outlet property="raceListTableView" destination="hZx-Ci-RYA" id="tyP-tc-Ykl"/>
+                    </connections>
                 </viewController>
                 <customObject id="Jt4-5r-LWV" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

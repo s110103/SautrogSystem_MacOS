@@ -13,6 +13,11 @@ class WindowController: NSWindowController {
         super.windowDidLoad()
 
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
-        window?.isMovableByWindowBackground = true
+        self.window?.isMovableByWindowBackground = true
+        self.window?.titlebarAppearsTransparent = true
+        self.window?.isOpaque = false
+        self.window?.makeKeyAndOrderFront(nil)
+        
+        //self.window?.styleMask = .fullSizeContentView
     }
 }
