@@ -37,6 +37,9 @@ class HomeViewController: NSViewController {
         }
         
         if lockStatusImageView.frame.contains(touchedPoint) {
+            
+            performSegue(withIdentifier: "showLoginSegue", sender: self)
+            
             if appLocked == true {
                 appLocked = false
                 lockStatusImageView.image = NSImage(named: "NSLockUnlockedTemplate")
@@ -46,6 +49,15 @@ class HomeViewController: NSViewController {
             }
         }
         
+    }
+    
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "showLoginSegue":
+            let tel = 0
+        default:
+            break
+        }
     }
     
 }
