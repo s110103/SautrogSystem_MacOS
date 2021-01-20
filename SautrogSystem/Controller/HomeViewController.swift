@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class HomeViewController: NSViewController {
+class HomeViewController: NSViewController, UnlockViewControllerDelegate {
     
     // MARK: - Variables
     var appLocked: Bool = true
@@ -22,6 +22,7 @@ class HomeViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        updateLockingImage()
     }
     
     // MARK: - Actions
@@ -37,15 +38,11 @@ class HomeViewController: NSViewController {
         }
         
         if lockStatusImageView.frame.contains(touchedPoint) {
-            
-            performSegue(withIdentifier: "showLoginSegue", sender: self)
-            
             if appLocked == true {
-                appLocked = false
-                lockStatusImageView.image = NSImage(named: "NSLockUnlockedTemplate")
+                performSegue(withIdentifier: "showLoginSegue", sender: self)
             } else {
                 appLocked = true
-                lockStatusImageView.image = NSImage(named: "NSLockLockedTemplate")
+                updateLockingImage()
             }
         }
         
@@ -54,10 +51,25 @@ class HomeViewController: NSViewController {
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "showLoginSegue":
-            let tel = 0
+            let destinationVC = segue.destinationController as! UnlockViewController
+            
+            destinationVC.delegate = self
         default:
             break
         }
+    }
+    
+    func updateLockingImage() {
+        if appLocked == true {
+            lockStatusImageView.image = NSImage(named: "NSLockLockedTemplate")
+        } else {
+            lockStatusImageView.image = NSImage(named: "NSLockUnlockedTemplate")
+        }
+    }
+    
+    func sendLockingResult(result: Bool) {
+        appLocked = result
+        updateLockingImage()
     }
     
 }

@@ -18,6 +18,11 @@ class WindowController: NSWindowController {
         self.window?.standardWindowButton(.miniaturizeButton)?.isHidden = true
         self.window?.standardWindowButton(.zoomButton)?.isHidden = true
                 
+        self.window?.standardWindowButton(.closeButton)?.isBordered = false
+        self.window?.standardWindowButton(.closeButton)?.wantsLayer = true
+        
+        let attributedString = NSAttributedString(string: "", attributes: [NSAttributedString.Key.foregroundColor: NSColor.white])
+        self.window?.standardWindowButton(.closeButton)?.attributedTitle = attributedString
         
     }
 }

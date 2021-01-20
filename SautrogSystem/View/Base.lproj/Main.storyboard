@@ -906,7 +906,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="O6d-MM-gzj">
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="O6d-MM-gzj" customClass="NSSecureTextField">
                                 <rect key="frame" x="190" y="60" width="196" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="7Sr-ad-146"/>

@@ -15,9 +15,10 @@ class UnlockViewController: NSViewController {
     
     // MARK: - Variables
     var delegate: UnlockViewControllerDelegate?
+    var monitor: Any?
     
     // MARK: - Outlets
-    @IBOutlet weak var passwordTextField: NSTextField!
+    @IBOutlet weak var passwordTextField: NSSecureTextField!
     @IBOutlet weak var closeButton: NSButton!
     @IBOutlet weak var activateButton: NSButton!
     
@@ -25,6 +26,8 @@ class UnlockViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        
+        self.monitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown, handler: keyDownEvent)
         
         activateButton.title = "Aktivieren"
         activateButton.bezelStyle = .texturedSquare
@@ -37,6 +40,7 @@ class UnlockViewController: NSViewController {
         let attributedString = NSAttributedString(string: activateButton.title, attributes: [NSAttributedString.Key.foregroundColor: NSColor.white])
         
         activateButton.attributedTitle = attributedString
+        
     }
     
     // MARK: - Actions
@@ -50,14 +54,23 @@ class UnlockViewController: NSViewController {
     }
     
     // MARK: - Functions
+    func keyDownEvent(event: NSEvent) -> NSEvent {
+        if event.keyCode == 36 {
+            checkPassword()
+            dismiss(self)
+            
+        }
+        return event
+    }
+    
     func checkPassword() {
-        var result: Bool = false
+        var result: Bool = true
         
         if passwordTextField.stringValue == "Sautrog" {
-            result = true
+            result = false
         }
         passwordTextField.stringValue = ""
-        
+                        
         delegate?.sendLockingResult(result: result)
     }
     
