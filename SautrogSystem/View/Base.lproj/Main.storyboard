@@ -686,8 +686,8 @@
         <scene sceneID="cit-Ji-oq8">
             <objects>
                 <windowController id="2mq-8p-Ytv" customClass="WindowController" customModule="SautrogSystem" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="SautrogSystem" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" appearanceType="aqua" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="Udq-hF-meU">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                    <window key="window" title="SautrogSystem" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" appearanceType="aqua" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="Udq-hF-meU" customClass="HomeWindow" customModule="SautrogSystem" customModuleProvider="target">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="249" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
@@ -881,7 +881,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="250" height="420"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="64" horizontalPageScroll="10" verticalLineScroll="64" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpP-hX-Q1i">
+                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="64" horizontalPageScroll="10" verticalLineScroll="64" verticalPageScroll="10" usesPredominantAxisScrolling="NO" findBarPosition="belowContent" translatesAutoresizingMaskIntoConstraints="NO" id="cpP-hX-Q1i">
                                 <rect key="frame" x="0.0" y="-30" width="250" height="450"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" drawsBackground="NO" id="UcB-rt-Q7k">
@@ -947,7 +947,7 @@
                                             </tableColumns>
                                         </tableView>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="backgroundColor"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="0RH-7e-W2B">
                                     <rect key="frame" x="1" y="433" width="248" height="16"/>
