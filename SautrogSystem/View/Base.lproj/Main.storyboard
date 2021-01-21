@@ -685,8 +685,8 @@
         <!--Window Controller-->
         <scene sceneID="cit-Ji-oq8">
             <objects>
-                <windowController id="2mq-8p-Ytv" customClass="WindowController" customModule="SautrogSystem" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="SautrogSystem" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" appearanceType="aqua" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="Udq-hF-meU" customClass="HomeWindow" customModule="SautrogSystem" customModuleProvider="target">
+                <windowController storyboardIdentifier="windowController" id="2mq-8p-Ytv" customClass="WindowController" customModule="SautrogSystem" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" identifier="homeViewController" title="SautrogSystem" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="Udq-hF-meU" customClass="HomeWindow" customModule="SautrogSystem" customModuleProvider="target">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="249" width="480" height="270"/>
@@ -695,6 +695,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </view>
+                        <accessibility identifier="homeViewController"/>
                         <connections>
                             <outlet property="delegate" destination="2mq-8p-Ytv" id="8Oe-o3-iA2"/>
                         </connections>
@@ -727,6 +728,97 @@
                 <customObject id="ATN-oh-OSt" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="718" y="242"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="oZt-y5-Jwt">
+            <objects>
+                <windowController id="Jb0-6M-8f1" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="7SQ-KU-5Y5">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" fullSizeContentView="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="196" y="249" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
+                        <view key="contentView" id="Qqu-Tw-OCn">
+                            <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </view>
+                        <toolbar key="toolbar" implicitIdentifier="09D11707-F4A3-4FD5-970E-AC5832E91C2B" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="1K1-61-lRq">
+                            <allowedToolbarItems>
+                                <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="O8z-Hb-BON"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="qxG-jq-v4q"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="mcb-Dx-UlI"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="fD9-8k-YBz"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="DtW-2y-TXS"/>
+                            </allowedToolbarItems>
+                            <defaultToolbarItems>
+                                <toolbarItem reference="O8z-Hb-BON"/>
+                                <toolbarItem reference="qxG-jq-v4q"/>
+                                <toolbarItem reference="DtW-2y-TXS"/>
+                                <toolbarItem reference="mcb-Dx-UlI"/>
+                            </defaultToolbarItems>
+                        </toolbar>
+                        <connections>
+                            <outlet property="delegate" destination="Jb0-6M-8f1" id="Cy9-aj-WMH"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="nIR-ak-dn8" kind="relationship" relationship="window.shadowedContentViewController" id="Kkc-Hk-UOr"/>
+                    </connections>
+                </windowController>
+                <customObject id="eOJ-U6-1f9" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1326" y="-435"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="HsA-Rx-SlL">
+            <objects>
+                <splitViewController id="nIR-ak-dn8" sceneMemberID="viewController">
+                    <splitViewItems>
+                        <splitViewItem canCollapse="YES" holdingPriority="260" behavior="sidebar" id="ypD-6D-eL8"/>
+                        <splitViewItem id="GIf-zf-iRT"/>
+                    </splitViewItems>
+                    <splitView key="splitView" dividerStyle="thin" vertical="YES" id="f8z-bf-gBA">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </splitView>
+                    <connections>
+                        <segue destination="Qxq-KX-Z63" kind="relationship" relationship="splitItems" id="ohm-rl-5P4"/>
+                        <segue destination="Tv0-GA-LXI" kind="relationship" relationship="splitItems" id="Jui-Y8-q7O"/>
+                    </connections>
+                </splitViewController>
+                <customObject id="mCc-Rk-M6z" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2018" y="-431"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="vFY-TN-lf9">
+            <objects>
+                <viewController id="Qxq-KX-Z63" sceneMemberID="viewController">
+                    <view key="view" id="IgK-YV-WlC">
+                        <rect key="frame" x="0.0" y="0.0" width="149" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <viewLayoutGuide key="safeArea" id="0E7-ga-z5U"/>
+                        <viewLayoutGuide key="layoutMargins" id="txz-xp-F3V"/>
+                    </view>
+                </viewController>
+                <customObject id="Yca-59-RUB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2538" y="-617"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="3g8-pw-AFJ">
+            <objects>
+                <viewController id="Tv0-GA-LXI" sceneMemberID="viewController">
+                    <view key="view" id="yqQ-U5-fFK">
+                        <rect key="frame" x="0.0" y="0.0" width="302" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <viewLayoutGuide key="safeArea" id="9Kp-qy-pEm"/>
+                        <viewLayoutGuide key="layoutMargins" id="yac-4S-dmY"/>
+                    </view>
+                </viewController>
+                <customObject id="rTR-29-w4N" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2614" y="-245"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="PVr-GV-16d">
@@ -868,6 +960,7 @@
                         <outlet property="openRaceView" destination="NrR-Hc-T7s" id="bkH-HK-Sh1"/>
                         <outlet property="versionTextField" destination="eHQ-Kc-W3g" id="6TT-dA-FQk"/>
                         <segue destination="yS8-Dv-kD4" kind="sheet" identifier="showLoginSegue" id="xmE-zz-OW9"/>
+                        <segue destination="Jb0-6M-8f1" kind="show" identifier="showSautrogSystemSegue" id="aWD-0j-YJG"/>
                     </connections>
                 </viewController>
                 <customObject id="P2m-h6-L4a" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

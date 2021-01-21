@@ -32,6 +32,13 @@ class HomeViewController: NSViewController, UnlockViewControllerDelegate {
         let touchedPoint: CGPoint = event.locationInWindow
                 
         if addRaceView.frame.contains(touchedPoint) {
+            //let windowController: NSWindowController = NSStoryboard(name: "windowController", bundle: nil).instantiateController(withIdentifier: "windowController") as! NSWindowController
+            
+            let windowController = WindowController()
+            
+            windowController.dismissController(self)
+            
+            performSegue(withIdentifier: "showSautrogSystemSegue", sender: self)
         }
         
         if openRaceView.frame.contains(touchedPoint) {
