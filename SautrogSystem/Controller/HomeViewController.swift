@@ -32,16 +32,34 @@ class HomeViewController: NSViewController, UnlockViewControllerDelegate {
         let touchedPoint: CGPoint = event.locationInWindow
                 
         if addRaceView.frame.contains(touchedPoint) {
-            //let windowController: NSWindowController = NSStoryboard(name: "windowController", bundle: nil).instantiateController(withIdentifier: "windowController") as! NSWindowController
-            
-            let windowController = WindowController()
-            
-            windowController.dismissController(self)
-            
-            performSegue(withIdentifier: "showSautrogSystemSegue", sender: self)
+            if appLocked == false {
+                //let windowController: NSWindowController = NSStoryboard(name: "windowController", bundle: nil).instantiateController(withIdentifier: "windowController") as! NSWindowController
+                
+                let windowController = WindowController()
+                
+                windowController.dismissController(self)
+                
+                performSegue(withIdentifier: "showSautrogSystemSegue", sender: self)
+            } else {
+                let alert = NSAlert()
+                alert.messageText = "Gesperrt"
+                alert.informativeText = "Die Software muss zuerst entsperrt werden"
+                
+                alert.beginSheetModal(for: self.view.window!) { (response) in
+                }
+            }
         }
         
         if openRaceView.frame.contains(touchedPoint) {
+            if appLocked == false {
+            } else {
+                let alert = NSAlert()
+                alert.messageText = "Gesperrt"
+                alert.informativeText = "Die Software muss zuerst entsperrt werden"
+                
+                alert.beginSheetModal(for: self.view.window!) { (response) in
+                }
+            }
         }
         
         if lockStatusImageView.frame.contains(touchedPoint) {
