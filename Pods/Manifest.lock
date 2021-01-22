@@ -16,12 +16,14 @@ PODS:
   - SwiftNIOConcurrencyHelpers (2.25.1):
     - CNIOAtomics (= 2.25.1)
   - SwiftyJSON (5.0.0)
+  - ToastUI (2.0.0)
 
 DEPENDENCIES:
   - Alamofire
   - NSGradientView
   - SwiftNIO
   - SwiftyJSON
+  - ToastUI
 
 SPEC REPOS:
   trunk:
@@ -35,6 +37,7 @@ SPEC REPOS:
     - SwiftNIO
     - SwiftNIOConcurrencyHelpers
     - SwiftyJSON
+    - ToastUI
 
 SPEC CHECKSUMS:
   Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
@@ -47,7 +50,8 @@ SPEC CHECKSUMS:
   SwiftNIO: 3f9a197581f6dfebf65a5c85099f25197d892c8c
   SwiftNIOConcurrencyHelpers: 3670690a0fb8d8a0a4759804d07aaf89c9599839
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  ToastUI: 391eb9a1cc15e7ef4b79ee112e4a0b969259154f
 
-PODFILE CHECKSUM: ad12ad0877f601cb15c36ca71efd9e964682df7b
+PODFILE CHECKSUM: 879b7156acaa76ee11406abbf25400ccc5fd71d7
 
 COCOAPODS: 1.10.0

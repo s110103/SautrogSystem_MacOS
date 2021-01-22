@@ -11,5 +11,6 @@ target 'SautrogSystem' do
 	pod 'Alamofire'
 	pod 'SwiftNIO'
 	pod 'NSGradientView'
+	pod 'ToastUI'
 
 end

@@ -59,6 +59,7 @@ class HomeViewController: NSViewController, UnlockViewControllerDelegate {
                 
                 alert.beginSheetModal(for: self.view.window!) { (response) in
                 }
+                
             }
         }
         
@@ -67,6 +68,7 @@ class HomeViewController: NSViewController, UnlockViewControllerDelegate {
                 performSegue(withIdentifier: "showLoginSegue", sender: self)
             } else {
                 appLocked = true
+                NotificationCenter.default.post(name: NSNotification.Name("appLocked"), object: nil, userInfo: ["appLockedResult": appLocked])
                 updateLockingImage()
             }
         }
@@ -94,6 +96,7 @@ class HomeViewController: NSViewController, UnlockViewControllerDelegate {
     
     func sendLockingResult(result: Bool) {
         appLocked = result
+        NotificationCenter.default.post(name: NSNotification.Name("appLocked"), object: nil, userInfo: ["appLockedResult": result])
         updateLockingImage()
     }
     

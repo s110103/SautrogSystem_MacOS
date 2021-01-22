@@ -10,7 +10,9 @@ import Cocoa
 class RaceListViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
     
     // MARK: - Variables
-    var runs: [String] = ["Sautrogrennen 2021", "Sautrogrennen 2020"]
+    var appLocked: Bool = true
+    var temporaryRow: Int = 0
+    var runs: [String] = ["Sautrogrennen 2021", "Sautrogrennen 2020", "Sautrogrennen 2019"]
     
     // MARK: - Outlets
     @IBOutlet weak var raceListTableView: NSTableView!
@@ -25,6 +27,12 @@ class RaceListViewController: NSViewController, NSTableViewDelegate, NSTableView
         
         raceListTableView.reloadData()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(self.appLockedResult(_:)), name: NSNotification.Name(rawValue: "appLocked"), object: nil)
+        
+    }
+    
+    override func viewDidDisappear() {
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: - Actions
@@ -53,7 +61,32 @@ class RaceListViewController: NSViewController, NSTableViewDelegate, NSTableView
     func tableViewSelectionDidChange(_ notification: Notification) {
         let table = notification.object as! NSTableView
         
-        table.deselectRow(table.selectedRow)
+        if temporaryRow != table.selectedRow {
+            temporaryRow = table.selectedRow
+        }
+        
+        if table.isRowSelected(table.selectedRow) {
+            if appLocked == false {
+                
+            } else {
+                let alert = NSAlert()
+                alert.messageText = "Gesperrt"
+                alert.informativeText = "Die Software muss zuerst entsperrt werden"
+                
+                alert.beginSheetModal(for: self.view.window!) { (response) in
+                }
+            }
+            
+            table.deselectRow(table.selectedRow)
+        }
+        
+    }
+    
+    @objc func appLockedResult(_ notification: NSNotification) {
+
+        if let appLockedResult = notification.userInfo?["appLockedResult"] as? Bool {
+            appLocked = appLockedResult
+        }
     }
     
 }
