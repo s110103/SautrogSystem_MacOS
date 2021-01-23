@@ -10,7 +10,7 @@ import Cocoa
 class HomeViewController: NSViewController, UnlockViewControllerDelegate {
     
     // MARK: - Variables
-    var appLocked: Bool = true
+    var appLocked: Bool = false
     
     // MARK: - Outlets
     @IBOutlet weak var versionTextField: NSTextField!
@@ -22,6 +22,10 @@ class HomeViewController: NSViewController, UnlockViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+    }
+    
+    override func viewWillAppear() {
+        NotificationCenter.default.post(name: NSNotification.Name("appLocked"), object: nil, userInfo: ["appLockedResult": appLocked])
         updateLockingImage()
     }
     
