@@ -34,10 +34,8 @@ class HomeViewController: NSViewController, UnlockViewControllerDelegate {
         if addRaceView.frame.contains(touchedPoint) {
             if appLocked == false {
                 //let windowController: NSWindowController = NSStoryboard(name: "windowController", bundle: nil).instantiateController(withIdentifier: "windowController") as! NSWindowController
-                
-                let windowController = WindowController()
-                
-                windowController.dismissController(self)
+                                
+                self.view.window?.close()
                 
                 performSegue(withIdentifier: "showSautrogSystemSegue", sender: self)
             } else {
@@ -52,6 +50,25 @@ class HomeViewController: NSViewController, UnlockViewControllerDelegate {
         
         if openRaceView.frame.contains(touchedPoint) {
             if appLocked == false {
+                                
+                let sautrogFilePicker: NSOpenPanel = NSOpenPanel()
+                
+                sautrogFilePicker.allowsMultipleSelection = false
+                sautrogFilePicker.canChooseFiles = true
+                sautrogFilePicker.canChooseDirectories = false
+                
+                sautrogFilePicker.runModal()
+                                
+                let chosenFile = sautrogFilePicker.url
+                
+                if chosenFile != nil {
+                    // something picked
+                    var sautrogImport = NSImage(contentsOfFile: chosenFile!.absoluteString)
+                } else {
+                    // nothing picked
+                }
+                
+                
             } else {
                 let alert = NSAlert()
                 alert.messageText = "Gesperrt"

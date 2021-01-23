@@ -680,7 +680,7 @@
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="-239" y="-2"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="cit-Ji-oq8">
@@ -688,11 +688,14 @@
                 <windowController storyboardIdentifier="windowController" id="2mq-8p-Ytv" customClass="WindowController" customModule="SautrogSystem" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" identifier="homeViewController" title="SautrogSystem" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="Udq-hF-meU" customClass="HomeWindow" customModule="SautrogSystem" customModuleProvider="target">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" fullSizeContentView="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="249" width="480" height="270"/>
-                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
+                        <rect key="contentRect" x="437" y="279" width="800" height="420"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="875"/>
+                        <value key="minSize" type="size" width="800" height="420"/>
+                        <value key="maxSize" type="size" width="800" height="420"/>
+                        <value key="minFullScreenContentSize" type="size" width="800" height="420"/>
+                        <value key="maxFullScreenContentSize" type="size" width="800" height="420"/>
                         <view key="contentView" id="RWt-lA-fLh">
-                            <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                            <rect key="frame" x="0.0" y="0.0" width="800" height="420"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </view>
                         <accessibility identifier="homeViewController"/>
@@ -706,7 +709,7 @@
                 </windowController>
                 <customObject id="Me7-Kg-CLl" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="87" y="257"/>
+            <point key="canvasLocation" x="-67" y="302"/>
         </scene>
         <!--SautrogSystem-->
         <scene sceneID="qFf-or-oJ0">
@@ -721,6 +724,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </splitView>
                     <connections>
+                        <outlet property="homeSplitView" destination="i0H-7o-Zns" id="eif-CO-aQp"/>
                         <segue destination="1ZZ-Ap-hH5" kind="relationship" relationship="splitItems" id="ojz-cz-cCr"/>
                         <segue destination="HnF-fl-OdD" kind="relationship" relationship="splitItems" id="Y8i-ui-kNH"/>
                     </connections>
