@@ -37,8 +37,6 @@ class HomeViewController: NSViewController, UnlockViewControllerDelegate {
                 
         if addRaceView.frame.contains(touchedPoint) {
             if appLocked == false {
-                //let windowController: NSWindowController = NSStoryboard(name: "windowController", bundle: nil).instantiateController(withIdentifier: "windowController") as! NSWindowController
-                                
                 self.view.window?.close()
                 
                 performSegue(withIdentifier: "showSautrogSystemSegue", sender: self)
@@ -86,7 +84,7 @@ class HomeViewController: NSViewController, UnlockViewControllerDelegate {
         
         if lockStatusImageView.frame.contains(touchedPoint) {
             if appLocked == true {
-                performSegue(withIdentifier: "showLoginSegue", sender: self)
+                performSegue(withIdentifier: "homeViewShowLoginSegue", sender: self)
             } else {
                 appLocked = true
                 NotificationCenter.default.post(name: NSNotification.Name("appLocked"), object: nil, userInfo: ["appLockedResult": appLocked])
@@ -98,7 +96,7 @@ class HomeViewController: NSViewController, UnlockViewControllerDelegate {
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         switch segue.identifier {
-        case "showLoginSegue":
+        case "homeViewShowLoginSegue":
             let destinationVC = segue.destinationController as! UnlockViewController
             
             destinationVC.delegate = self

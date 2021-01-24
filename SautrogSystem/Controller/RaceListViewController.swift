@@ -83,7 +83,6 @@ class RaceListViewController: NSViewController, NSTableViewDelegate, NSTableView
     }
     
     @objc func appLockedResult(_ notification: NSNotification) {
-
         if let appLockedResult = notification.userInfo?["appLockedResult"] as? Bool {
             appLocked = appLockedResult
         }

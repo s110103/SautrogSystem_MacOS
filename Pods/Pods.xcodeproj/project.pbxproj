@@ -1497,7 +1497,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1230;
 				TargetAttributes = {
 					635A0A1303CA539655BECBC0E165646E = {
 						LastSwiftMigration = 1230;
@@ -1962,7 +1962,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FFBD556E00F52842886D4BABAB2972B2 /* CNIOWindows.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1998,7 +1997,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EFF1E8014190ED5D6FD519BFB82B919B /* NSGradientView.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -2033,7 +2031,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 80BE43422A11447EE9EBA368E8C2DB61 /* SwiftyJSON.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -2068,7 +2065,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ABCFE223C9F5264ED8F15571CCAE5B04 /* CNIOSHA1.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2170,7 +2166,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E76A8BCE1033629FE22EF9C106CEFA22 /* CNIOLinux.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2206,7 +2201,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4562366AE3FB1C6DAF1ECE7F0B3F387C /* SwiftNIOConcurrencyHelpers.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2242,7 +2236,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E524A30BD2CA24821D4D2075D6F29CA4 /* CNIOAtomics.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2278,7 +2271,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4D1A56B7EF286CF524E14B5D7B06FFD8 /* SwiftNIO.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2314,7 +2306,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BAB2F76A0E61DB5EE937393CC9513457 /* CNIOWindows.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2350,7 +2341,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7BE7B2E56DDAB3C772EC208EC220D506 /* SwiftNIO.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2387,7 +2377,6 @@
 			baseConfigurationReference = 14D79BECCA59C1F211C8855C104EAC23 /* Pods-SautrogSystem.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -2485,7 +2474,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F81F85C579F1E6666973EC44A6CA00A3 /* ToastUI.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -2520,7 +2508,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A88E673DBECB0C31C7F821C75C67ABEF /* Alamofire.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2556,7 +2543,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6930541B149A2F37E6C4808886833CA8 /* CNIOSHA1.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2592,7 +2578,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 177E09B6A20E421D99EA9CAEEFED2B1F /* NSGradientView.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -2627,7 +2612,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8B01537E66D88D5F6FED25C564388C5D /* CNIODarwin.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2663,7 +2647,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EB078E05BE3FA7E53B6BE3EF7F520462 /* CNIOLinux.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2699,7 +2682,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5427A9CD86DBE235AD20E207DA5ED5AE /* SwiftyJSON.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -2734,7 +2716,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1D606C138B99AFAF135D19332F3A7F3B /* CNIODarwin.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2770,7 +2751,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 01F8BA5814D964EABA85B69946C8A565 /* SwiftNIOConcurrencyHelpers.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2806,7 +2786,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 01CB5686D355DAA3016A8F05FB4A87C1 /* Alamofire.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2842,7 +2821,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 23E56B09C8DD62E216C1000FF5E5B563 /* CNIOAtomics.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2878,7 +2856,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B1AEAE9AE19A57744FDFBCBDA637D7D9 /* ToastUI.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -2914,7 +2891,6 @@
 			baseConfigurationReference = 988D223E8EF2822A68AC016A452676FB /* Pods-SautrogSystem.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
