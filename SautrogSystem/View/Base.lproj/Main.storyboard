@@ -736,7 +736,7 @@
         <!--Window Controller-->
         <scene sceneID="oZt-y5-Jwt">
             <objects>
-                <windowController id="Jb0-6M-8f1" sceneMemberID="viewController">
+                <windowController id="Jb0-6M-8f1" customClass="RaceWindowController" customModule="SautrogSystem" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="SautrogSystem" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" id="7SQ-KU-5Y5">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" fullSizeContentView="YES"/>
                         <rect key="contentRect" x="196" y="249" width="480" height="270"/>
@@ -775,10 +775,10 @@
             </objects>
             <point key="canvasLocation" x="1326" y="-435"/>
         </scene>
-        <!--Split View Controller-->
+        <!--Race Split View Controller-->
         <scene sceneID="HsA-Rx-SlL">
             <objects>
-                <splitViewController id="nIR-ak-dn8" sceneMemberID="viewController">
+                <splitViewController id="nIR-ak-dn8" customClass="RaceSplitViewController" customModule="SautrogSystem" customModuleProvider="target" sceneMemberID="viewController">
                     <splitViewItems>
                         <splitViewItem canCollapse="YES" holdingPriority="260" behavior="sidebar" id="ypD-6D-eL8"/>
                         <splitViewItem id="GIf-zf-iRT"/>
@@ -796,10 +796,10 @@
             </objects>
             <point key="canvasLocation" x="2018" y="-431"/>
         </scene>
-        <!--View Controller-->
+        <!--Race Sidebar View Controller-->
         <scene sceneID="vFY-TN-lf9">
             <objects>
-                <viewController id="Qxq-KX-Z63" sceneMemberID="viewController">
+                <viewController id="Qxq-KX-Z63" customClass="RaceSidebarViewController" customModule="SautrogSystem" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="IgK-YV-WlC">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="500"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -987,10 +987,10 @@
             </objects>
             <point key="canvasLocation" x="2613" y="-620"/>
         </scene>
-        <!--View Controller-->
+        <!--Race Main View Controller-->
         <scene sceneID="3g8-pw-AFJ">
             <objects>
-                <viewController id="Tv0-GA-LXI" sceneMemberID="viewController">
+                <viewController id="Tv0-GA-LXI" customClass="RaceMainViewController" customModule="SautrogSystem" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="yqQ-U5-fFK">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="500"/>
                         <autoresizingMask key="autoresizingMask"/>
