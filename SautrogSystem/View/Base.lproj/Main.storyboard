@@ -668,7 +668,6 @@
                     </menu>
                     <connections>
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
-                        <outlet property="sautrogSystemMenu" destination="AYu-sK-qS6" id="V46-VB-4sy"/>
                     </connections>
                 </application>
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="SautrogSystem" customModuleProvider="target"/>
@@ -732,12 +731,12 @@
         <scene sceneID="oZt-y5-Jwt">
             <objects>
                 <windowController id="Jb0-6M-8f1" customClass="RaceWindowController" customModule="SautrogSystem" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="SautrogSystem" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" id="7SQ-KU-5Y5">
+                    <window key="window" title="SautrogSystem" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="7SQ-KU-5Y5">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" fullSizeContentView="YES"/>
-                        <rect key="contentRect" x="196" y="249" width="480" height="270"/>
+                        <rect key="contentRect" x="196" y="249" width="623" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
                         <view key="contentView" id="Qqu-Tw-OCn">
-                            <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                            <rect key="frame" x="0.0" y="0.0" width="623" height="270"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </view>
                         <toolbar key="toolbar" implicitIdentifier="09D11707-F4A3-4FD5-970E-AC5832E91C2B" autosavesConfiguration="NO" displayMode="iconOnly" sizeMode="regular" id="1K1-61-lRq">
@@ -768,7 +767,7 @@
                 </windowController>
                 <customObject id="eOJ-U6-1f9" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1326" y="-435"/>
+            <point key="canvasLocation" x="1397.5" y="-435"/>
         </scene>
         <!--Race Split View Controller-->
         <scene sceneID="HsA-Rx-SlL">
@@ -1023,11 +1022,12 @@
                                     <rect key="frame" x="1" y="1" width="748" height="276"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" rowSizeStyle="automatic" headerView="w0B-VS-J9c" viewBased="YES" id="ADE-O9-1KV">
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="sequential" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" rowSizeStyle="automatic" headerView="w0B-VS-J9c" viewBased="YES" id="ADE-O9-1KV">
                                             <rect key="frame" x="0.0" y="0.0" width="748" height="248"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="17" height="0.0"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <tableViewGridLines key="gridStyleMask" dashed="YES"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
                                                 <tableColumn identifier="teamColumn" width="50" minWidth="40" maxWidth="1000" id="5je-Pa-lEc">
@@ -1337,6 +1337,24 @@
                             </scrollView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="eY6-l1-jJG">
                                 <rect key="frame" x="0.0" y="286" width="750" height="214"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GQl-by-LwU">
+                                        <rect key="frame" x="18" y="75" width="341" height="65"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="65" id="9br-Mw-gxr"/>
+                                            <constraint firstAttribute="width" constant="337" id="hWj-pU-3Td"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="SautrogSystem" id="7yL-Yx-41V">
+                                            <font key="font" metaFont="systemThin" size="55"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="GQl-by-LwU" firstAttribute="centerY" secondItem="eY6-l1-jJG" secondAttribute="centerY" id="70T-Bd-ID3"/>
+                                    <constraint firstItem="GQl-by-LwU" firstAttribute="leading" secondItem="eY6-l1-jJG" secondAttribute="leading" constant="20" symbolic="YES" id="fpb-F2-VMK"/>
+                                </constraints>
                             </customView>
                         </subviews>
                         <constraints>
@@ -1354,6 +1372,7 @@
                         <viewLayoutGuide key="layoutMargins" id="yac-4S-dmY"/>
                     </view>
                     <connections>
+                        <outlet property="teamListTableHeaderView" destination="w0B-VS-J9c" id="vMN-EZ-cU2"/>
                         <outlet property="teamListTableView" destination="ADE-O9-1KV" id="d8Z-iV-kts"/>
                         <segue destination="7gK-5h-qpG" kind="sheet" identifier="mainViewShowLoginSegue" id="cy8-j2-pRV"/>
                     </connections>

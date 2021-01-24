@@ -9,6 +9,4 @@ import Cocoa
 
 class SautrogSystemApplication: NSApplication {
     
-    // MARK: - Outlets
-    @IBOutlet weak var sautrogSystemMenu: NSMenu!
 }

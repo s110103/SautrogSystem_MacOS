@@ -13,8 +13,11 @@ class RaceMainViewController: NSViewController, NSTableViewDelegate, NSTableView
     var cellHeight: Int = 16
     var teams: [Team] = []
     
+    let teamPasteboardType = NSPasteboard.PasteboardType(rawValue: "teams.team")
+    
     // MARK: - Outlets
     @IBOutlet weak var teamListTableView: NSTableView!
+    @IBOutlet weak var teamListTableHeaderView: NSTableHeaderView!
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -26,7 +29,7 @@ class RaceMainViewController: NSViewController, NSTableViewDelegate, NSTableView
         teamListTableView.delegate = self
         teamListTableView.dataSource = self
         
-        print(teamListTableView.tableColumns.count)
+        teamListTableView.registerForDraggedTypes([teamPasteboardType])
         
     }
     
@@ -82,6 +85,11 @@ class RaceMainViewController: NSViewController, NSTableViewDelegate, NSTableView
         return nil
     }
     
+    func tableViewSelectionDidChange(_ notification: Notification) {
+        teamListTableView.deselectRow(teamListTableView.selectedRow)
+    }
+    
+    
     func makeLabel(_ text: String, _ width: CGFloat, _ align: NSTextAlignment = .left) -> NSTextField {
         let rect = CGRect(x: 0, y: 0, width: Int(width), height: cellHeight);
         let label = NSTextField(frame: rect)
@@ -93,4 +101,53 @@ class RaceMainViewController: NSViewController, NSTableViewDelegate, NSTableView
         label.alignment = align
         return label
     }
+}
+
+// MARK: - Pasteboard
+
+extension RaceMainViewController {
+    // For the source table view
+    func tableView(_ tableView: NSTableView, pasteboardWriterForRow row: Int) -> NSPasteboardWriting? {
+        let team = teams[row]
+        let pasteboardItem = NSPasteboardItem()
+        pasteboardItem.setString(team.teamName, forType: teamPasteboardType)
+        return pasteboardItem
+    }
+    
+    // For the destination table view
+        func tableView(_ tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow row: Int, proposedDropOperation dropOperation: NSTableView.DropOperation) -> NSDragOperation {
+            if dropOperation == .above {
+                return .move
+            } else {
+                return []
+            }
+        }
+
+        // For the destination table view
+        func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableView.DropOperation) -> Bool {
+            guard
+                let item = info.draggingPasteboard.pasteboardItems?.first,
+                let theString = item.string(forType: teamPasteboardType),
+                let team = teams.first(where: { $0.teamName == theString }),
+                let originalRow = teams.firstIndex(of: team)
+                else { return false }
+
+            var newRow = row
+            // When you drag an item downwards, the "new row" index is actually --1. Remember dragging operation is `.above`.
+            if originalRow < newRow {
+                newRow = row - 1
+            }
+
+            // Animate the rows
+            tableView.beginUpdates()
+            tableView.moveRow(at: originalRow, to: newRow)
+            tableView.endUpdates()
+
+            // Persist the ordering by saving your data model
+            teams.move(from: originalRow, to: newRow)
+
+            return true
+            
+            
+        }
 }

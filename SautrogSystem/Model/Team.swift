@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Team {
+class Team: Equatable {
     
     var teamID: Int = 0
     var teamName: String = ""
@@ -54,6 +54,22 @@ class Team {
         self.teamCommencedRun = _teamCommencedRun
         self.teamFinishedRun = _teamFinishedRun
         self.teamRunInterval = _teamRunInterval
+    }
+    
+    static func == (lhs: Team, rhs: Team) -> Bool {
+        return
+            lhs.teamID == rhs.teamID &&
+            lhs.teamName == rhs.teamName &&
+            lhs.teamFirstDriver == rhs.teamSecondDriver &&
+            lhs.teamSong == rhs.teamSong &&
+            lhs.teamCostume == rhs.teamCostume &&
+            lhs.teamRemarks == rhs.teamRemarks &&
+            lhs.teamGender == rhs.teamGender &&
+            lhs.teamAnnotations == rhs.teamAnnotations &&
+            lhs.teamPayedFee == rhs.teamPayedFee &&
+            lhs.teamCommencedRun == rhs.teamCommencedRun &&
+            lhs.teamFinishedRun == rhs.teamFinishedRun &&
+            lhs.teamRunInterval == rhs.teamRunInterval
     }
     
 }
