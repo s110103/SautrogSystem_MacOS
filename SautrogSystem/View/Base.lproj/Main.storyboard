@@ -941,6 +941,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="systemThin" size="17"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="addTeamButtonTapped:" target="Qxq-KX-Z63" id="e5m-BP-5Ed"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>
@@ -982,6 +985,19 @@
                         <viewLayoutGuide key="safeArea" id="0E7-ga-z5U"/>
                         <viewLayoutGuide key="layoutMargins" id="txz-xp-F3V"/>
                     </view>
+                    <connections>
+                        <outlet property="addTeamButton" destination="Amv-ft-7pr" id="lpr-d5-G6m"/>
+                        <outlet property="firstDriverTextField" destination="LIO-g0-gXc" id="dT2-h2-JTX"/>
+                        <outlet property="newTeamLabel" destination="SZh-VR-M3Q" id="jOd-pX-D6S"/>
+                        <outlet property="secondDriverTextField" destination="b63-6L-ytw" id="lkL-D4-vQH"/>
+                        <outlet property="teamAnnotationsPopUp" destination="kvf-Yk-VV0" id="ArE-Vi-NHs"/>
+                        <outlet property="teamCostumeTextField" destination="6Zq-ps-MKI" id="QfD-zS-jVO"/>
+                        <outlet property="teamGenderPopUp" destination="0eV-zh-Nhn" id="lSq-uL-X49"/>
+                        <outlet property="teamNameTextField" destination="URz-BN-wOU" id="JD0-ac-cXY"/>
+                        <outlet property="teamPayedFeePopUp" destination="lag-nd-tuD" id="OGc-v5-eHv"/>
+                        <outlet property="teamRemarksTextField" destination="nxQ-b7-4V5" id="7mg-f3-EMd"/>
+                        <outlet property="teamSongTextField" destination="s3P-s8-GCs" id="ymW-rp-f5q"/>
+                    </connections>
                 </viewController>
                 <customObject id="Yca-59-RUB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

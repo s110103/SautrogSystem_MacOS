@@ -23,7 +23,6 @@
 		069FD5F225BDAC0400B6BAA5 /* RaceSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069FD5F125BDAC0400B6BAA5 /* RaceSplitViewController.swift */; };
 		069FD5F525BDAC2200B6BAA5 /* RaceSidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069FD5F425BDAC2200B6BAA5 /* RaceSidebarViewController.swift */; };
 		069FD5F925BDAC3000B6BAA5 /* RaceMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069FD5F725BDAC3000B6BAA5 /* RaceMainViewController.swift */; };
-		069FD5FA25BDAC3000B6BAA5 /* RaceMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 069FD5F825BDAC3000B6BAA5 /* RaceMainViewController.xib */; };
 		06B474CA25B614BF0052BF43 /* RaceListTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B474C925B614BF0052BF43 /* RaceListTableCellView.swift */; };
 		480D3267EE6E9AEE8123F534 /* Pods_SautrogSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9FD03D794157C2315E91B74 /* Pods_SautrogSystem.framework */; };
 /* End PBXBuildFile section */
@@ -48,7 +47,6 @@
 		069FD5F125BDAC0400B6BAA5 /* RaceSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceSplitViewController.swift; sourceTree = "<group>"; };
 		069FD5F425BDAC2200B6BAA5 /* RaceSidebarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceSidebarViewController.swift; sourceTree = "<group>"; };
 		069FD5F725BDAC3000B6BAA5 /* RaceMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceMainViewController.swift; sourceTree = "<group>"; };
-		069FD5F825BDAC3000B6BAA5 /* RaceMainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RaceMainViewController.xib; sourceTree = "<group>"; };
 		06B474C925B614BF0052BF43 /* RaceListTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceListTableCellView.swift; sourceTree = "<group>"; };
 		5D2595AC1C72335BBDD59B4C /* Pods-SautrogSystem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SautrogSystem.debug.xcconfig"; path = "Target Support Files/Pods-SautrogSystem/Pods-SautrogSystem.debug.xcconfig"; sourceTree = "<group>"; };
 		D9FD03D794157C2315E91B74 /* Pods_SautrogSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SautrogSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,7 +128,6 @@
 				069FD5F125BDAC0400B6BAA5 /* RaceSplitViewController.swift */,
 				069FD5F425BDAC2200B6BAA5 /* RaceSidebarViewController.swift */,
 				069FD5F725BDAC3000B6BAA5 /* RaceMainViewController.swift */,
-				069FD5F825BDAC3000B6BAA5 /* RaceMainViewController.xib */,
 			);
 			path = raceSystem;
 			sourceTree = "<group>";
@@ -230,7 +227,6 @@
 			files = (
 				0671A1CD25B4AD5B002C3635 /* Assets.xcassets in Resources */,
 				0671A20925B4BE4C002C3635 /* WindowController.xib in Resources */,
-				069FD5FA25BDAC3000B6BAA5 /* RaceMainViewController.xib in Resources */,
 				0671A1D025B4AD5B002C3635 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

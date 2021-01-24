@@ -46,7 +46,7 @@ class HomeViewController: NSViewController, UnlockViewControllerDelegate {
                 let alert = NSAlert()
                 alert.messageText = "Gesperrt"
                 alert.informativeText = "Die Software muss zuerst entsperrt werden"
-                
+                                
                 alert.beginSheetModal(for: self.view.window!) { (response) in
                 }
             }
@@ -67,7 +67,7 @@ class HomeViewController: NSViewController, UnlockViewControllerDelegate {
                 
                 if chosenFile != nil {
                     // something picked
-                    var sautrogImport = NSImage(contentsOfFile: chosenFile!.absoluteString)
+                    let sautrogImport = NSImage(contentsOfFile: chosenFile!.absoluteString)
                 } else {
                     // nothing picked
                 }
