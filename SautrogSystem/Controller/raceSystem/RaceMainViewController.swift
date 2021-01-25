@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class RaceMainViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
+class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDelegate, NSTableViewDataSource {
     
     // MARK: - Variables
     var cellHeight: Int = 16
@@ -31,6 +31,18 @@ class RaceMainViewController: NSViewController, NSTableViewDelegate, NSTableView
         
         teamListTableView.registerForDraggedTypes([teamPasteboardType])
         
+        
+        var frame = self.view.window?.frame
+        let initialSize = NSSize(width: 1100, height: 450)
+        frame?.size = initialSize
+        self.view.window?.setFrame(frame!, display: true)
+        
+    }
+    
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        self.view.window?.delegate = self
+        self.view.window?.minSize = NSSize(width: 1100, height: 450)
     }
     
     override func viewDidDisappear() {
@@ -50,6 +62,10 @@ class RaceMainViewController: NSViewController, NSTableViewDelegate, NSTableView
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         teams.count
+    }
+    
+    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
+        return 25
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
@@ -99,14 +115,19 @@ class RaceMainViewController: NSViewController, NSTableViewDelegate, NSTableView
         label.drawsBackground = false
         
         label.alignment = align
+        
+        let font = NSFont(name: "Arial", size: 16)
+        
+        label.font = font
+        
         return label
     }
 }
 
-// MARK: - Pasteboard
+// MARK: - ReOrder
 
 extension RaceMainViewController {
-    // For the source table view
+    
     func tableView(_ tableView: NSTableView, pasteboardWriterForRow row: Int) -> NSPasteboardWriting? {
         let team = teams[row]
         let pasteboardItem = NSPasteboardItem()
@@ -114,40 +135,34 @@ extension RaceMainViewController {
         return pasteboardItem
     }
     
-    // For the destination table view
-        func tableView(_ tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow row: Int, proposedDropOperation dropOperation: NSTableView.DropOperation) -> NSDragOperation {
-            if dropOperation == .above {
-                return .move
-            } else {
-                return []
-            }
+    func tableView(_ tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow row: Int, proposedDropOperation dropOperation: NSTableView.DropOperation) -> NSDragOperation {
+        if dropOperation == .above {
+            return .move
+        } else {
+        return []
+        }
+    }
+
+    func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableView.DropOperation) -> Bool {
+        guard
+            let item = info.draggingPasteboard.pasteboardItems?.first,
+            let theString = item.string(forType: teamPasteboardType),
+            let team = teams.first(where: { $0.teamName == theString }),
+            let originalRow = teams.firstIndex(of: team)
+            else { return false }
+        
+        var newRow = row
+
+        if originalRow < newRow {
+            newRow = row - 1
         }
 
-        // For the destination table view
-        func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableView.DropOperation) -> Bool {
-            guard
-                let item = info.draggingPasteboard.pasteboardItems?.first,
-                let theString = item.string(forType: teamPasteboardType),
-                let team = teams.first(where: { $0.teamName == theString }),
-                let originalRow = teams.firstIndex(of: team)
-                else { return false }
+        tableView.beginUpdates()
+        tableView.moveRow(at: originalRow, to: newRow)
+        tableView.endUpdates()
+        
+        teams.move(from: originalRow, to: newRow)
 
-            var newRow = row
-            // When you drag an item downwards, the "new row" index is actually --1. Remember dragging operation is `.above`.
-            if originalRow < newRow {
-                newRow = row - 1
-            }
-
-            // Animate the rows
-            tableView.beginUpdates()
-            tableView.moveRow(at: originalRow, to: newRow)
-            tableView.endUpdates()
-
-            // Persist the ordering by saving your data model
-            teams.move(from: originalRow, to: newRow)
-
-            return true
-            
-            
-        }
+        return true
+    }
 }
