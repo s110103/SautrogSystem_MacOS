@@ -1408,6 +1408,9 @@
                                                                 </items>
                                                             </menu>
                                                         </popUpButtonCell>
+                                                        <connections>
+                                                            <action selector="timerFirstTeamPopUpTapped:" target="Tv0-GA-LXI" id="t2p-Za-924"/>
+                                                        </connections>
                                                     </popUpButton>
                                                     <popUpButton translatesAutoresizingMaskIntoConstraints="NO" id="jJW-Nr-DZA">
                                                         <rect key="frame" x="209" y="82" width="137" height="33"/>
@@ -1425,6 +1428,9 @@
                                                                 </items>
                                                             </menu>
                                                         </popUpButtonCell>
+                                                        <connections>
+                                                            <action selector="timerSecondTeamPopUpTapped:" target="Tv0-GA-LXI" id="pEl-IA-eGU"/>
+                                                        </connections>
                                                     </popUpButton>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="B2f-SE-GNo">
                                                         <rect key="frame" x="19" y="45" width="116" height="33"/>
@@ -1435,6 +1441,9 @@
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
+                                                        <connections>
+                                                            <action selector="timerStartButtonTapped:" target="Tv0-GA-LXI" id="z45-iL-A6X"/>
+                                                        </connections>
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kJw-eq-Kcg">
                                                         <rect key="frame" x="19" y="10" width="157" height="33"/>
@@ -1445,6 +1454,9 @@
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
+                                                        <connections>
+                                                            <action selector="timerStopFirstButtonTapped:" target="Tv0-GA-LXI" id="iAD-ZK-4B7"/>
+                                                        </connections>
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wDP-SF-Vos">
                                                         <rect key="frame" x="182" y="10" width="164" height="33"/>
@@ -1455,6 +1467,9 @@
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
+                                                        <connections>
+                                                            <action selector="timerStopSecondButtonTapped:" target="Tv0-GA-LXI" id="80J-qZ-CFM"/>
+                                                        </connections>
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UgS-D5-w6k">
                                                         <rect key="frame" x="162" y="85" width="41" height="25"/>
@@ -1466,6 +1481,9 @@
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
+                                                        <connections>
+                                                            <action selector="timerInitButtonTapped:" target="Tv0-GA-LXI" id="zM3-pt-dYY"/>
+                                                        </connections>
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uZ8-si-d42">
                                                         <rect key="frame" x="230" y="45" width="116" height="33"/>
@@ -1476,6 +1494,9 @@
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
+                                                        <connections>
+                                                            <action selector="timerStopButtonTapped:" target="Tv0-GA-LXI" id="H81-Io-vYg"/>
+                                                        </connections>
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TgW-A7-8OV">
                                                         <rect key="frame" x="141" y="49" width="83" height="25"/>
@@ -1487,6 +1508,9 @@
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
+                                                        <connections>
+                                                            <action selector="timerClearButtonTapped:" target="Tv0-GA-LXI" id="VSQ-FB-OKo"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -1558,8 +1582,19 @@
                         <viewLayoutGuide key="layoutMargins" id="yac-4S-dmY"/>
                     </view>
                     <connections>
+                        <outlet property="headerLeabel" destination="ebL-aL-rYF" id="Mt7-01-bT1"/>
+                        <outlet property="subHeaderLabel" destination="HvP-FG-Apf" id="l3x-Ms-SpW"/>
                         <outlet property="teamListTableHeaderView" destination="w0B-VS-J9c" id="vMN-EZ-cU2"/>
                         <outlet property="teamListTableView" destination="ADE-O9-1KV" id="d8Z-iV-kts"/>
+                        <outlet property="timerClearButton" destination="TgW-A7-8OV" id="bKk-PM-3Jn"/>
+                        <outlet property="timerFirstTeamPopUp" destination="jum-Vf-qcZ" id="jCo-jf-SA4"/>
+                        <outlet property="timerInitButton" destination="UgS-D5-w6k" id="QrH-RD-7ln"/>
+                        <outlet property="timerLabel" destination="Fy8-py-WDh" id="Lmd-Rc-Iga"/>
+                        <outlet property="timerSecondTeamPopUp" destination="jJW-Nr-DZA" id="wrN-0V-Uhl"/>
+                        <outlet property="timerStartButton" destination="B2f-SE-GNo" id="8iX-sb-L8m"/>
+                        <outlet property="timerStopButton" destination="uZ8-si-d42" id="5oX-ad-WnX"/>
+                        <outlet property="timerStopFirstButton" destination="kJw-eq-Kcg" id="qzG-JE-Bhb"/>
+                        <outlet property="timerStopSecondButton" destination="wDP-SF-Vos" id="y36-a5-66r"/>
                         <segue destination="7gK-5h-qpG" kind="sheet" identifier="mainViewShowLoginSegue" id="cy8-j2-pRV"/>
                     </connections>
                 </viewController>
@@ -1958,19 +1993,6 @@
                 <customObject id="Jt4-5r-LWV" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1211" y="656"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="DaP-rH-5GL">
-            <objects>
-                <viewController id="qmj-kj-Axe" sceneMemberID="viewController">
-                    <view key="view" id="434-7Z-d0Q">
-                        <rect key="frame" x="0.0" y="0.0" width="730" height="472"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </view>
-                </viewController>
-                <customObject id="uJg-z3-dy4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3359" y="-643"/>
         </scene>
         <!--Unlock View Controller-->
         <scene sceneID="spr-w7-xn1">

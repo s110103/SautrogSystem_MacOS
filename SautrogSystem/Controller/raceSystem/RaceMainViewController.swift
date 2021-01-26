@@ -18,6 +18,22 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
     // MARK: - Outlets
     @IBOutlet weak var teamListTableView: NSTableView!
     @IBOutlet weak var teamListTableHeaderView: NSTableHeaderView!
+    @IBOutlet weak var headerLeabel: NSTextField!
+    @IBOutlet weak var subHeaderLabel: NSTextField!
+    
+    /*
+        TimerControls
+     */
+    @IBOutlet weak var timerLabel: NSTextField!
+    @IBOutlet weak var timerFirstTeamPopUp: NSPopUpButton!
+    @IBOutlet weak var timerSecondTeamPopUp: NSPopUpButton!
+    @IBOutlet weak var timerInitButton: NSButton!
+    @IBOutlet weak var timerClearButton: NSButton!
+    @IBOutlet weak var timerStartButton: NSButton!
+    @IBOutlet weak var timerStopButton: NSButton!
+    @IBOutlet weak var timerStopFirstButton: NSButton!
+    @IBOutlet weak var timerStopSecondButton: NSButton!
+    
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -37,6 +53,11 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
         frame?.size = initialSize
         self.view.window?.setFrame(frame!, display: true)
         
+        teams.append(Team(_teamID: 1, _teamName: "Team", _teamFirstDriver: "Team", _teamSecondDriver: "Team", _teamSong: "Team", _teamCostume: "Team", _teamRemarks: "Team", _teamGender: 0, _teamAnnotations: 0, _teamPayedFee: 0))
+        teams.append(Team(_teamID: 2, _teamName: "Team2", _teamFirstDriver: "Team2", _teamSecondDriver: "Team2", _teamSong: "Team2", _teamCostume: "Team2", _teamRemarks: "Team2", _teamGender: 0, _teamAnnotations: 0, _teamPayedFee: 0))
+        
+        teamListTableView.reloadData()
+        
     }
     
     override func viewWillAppear() {
@@ -50,6 +71,22 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
     }
     
     // MARK: - Actions
+    @IBAction func timerFirstTeamPopUpTapped(_ sender: NSPopUpButton) {
+    }
+    @IBAction func timerSecondTeamPopUpTapped(_ sender: NSPopUpButton) {
+    }
+    @IBAction func timerInitButtonTapped(_ sender: NSButton) {
+    }
+    @IBAction func timerClearButtonTapped(_ sender: NSButton) {
+    }
+    @IBAction func timerStartButtonTapped(_ sender: NSButton) {
+    }
+    @IBAction func timerStopButtonTapped(_ sender: NSButton) {
+    }
+    @IBAction func timerStopFirstButtonTapped(_ sender: NSButton) {
+    }
+    @IBAction func timerStopSecondButtonTapped(_ sender: NSButton) {
+    }
     
     // MARK: - Functions
     @objc func newTeamResult(_ notification: NSNotification) {
@@ -131,7 +168,7 @@ extension RaceMainViewController {
     func tableView(_ tableView: NSTableView, pasteboardWriterForRow row: Int) -> NSPasteboardWriting? {
         let team = teams[row]
         let pasteboardItem = NSPasteboardItem()
-        pasteboardItem.setString(team.teamName, forType: teamPasteboardType)
+        pasteboardItem.setString(String(team.teamID), forType: teamPasteboardType)
         return pasteboardItem
     }
     
@@ -139,15 +176,17 @@ extension RaceMainViewController {
         if dropOperation == .above {
             return .move
         } else {
-        return []
+            return []
         }
     }
 
     func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableView.DropOperation) -> Bool {
+        
+        print(info.draggingPasteboard.pasteboardItems!.first!)
         guard
             let item = info.draggingPasteboard.pasteboardItems?.first,
             let theString = item.string(forType: teamPasteboardType),
-            let team = teams.first(where: { $0.teamName == theString }),
+            let team = teams.first(where: { $0.teamID == Int(theString) }),
             let originalRow = teams.firstIndex(of: team)
             else { return false }
         
@@ -162,6 +201,9 @@ extension RaceMainViewController {
         tableView.endUpdates()
         
         teams.move(from: originalRow, to: newRow)
+        
+        print(originalRow)
+        print(newRow)
 
         return true
     }
