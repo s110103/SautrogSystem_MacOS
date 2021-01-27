@@ -10,6 +10,16 @@ import Cocoa
 class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDelegate, NSTableViewDataSource {
     
     // MARK: - Variables
+    var timeCommenced: NSDate?
+    var timeFinished: NSDate?
+    var timeInterval: TimeInterval = TimeInterval()
+    var timer: Timer?
+    var timerRunning: Bool = false
+    var firstTeamName: String?
+    var secondTeamName: String?
+    var firstTeamID: Int?
+    var secondTeamID: Int?
+    
     var cellHeight: Int = 16
     var teams: [Team] = []
     
@@ -76,12 +86,36 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
     @IBAction func timerSecondTeamPopUpTapped(_ sender: NSPopUpButton) {
     }
     @IBAction func timerInitButtonTapped(_ sender: NSButton) {
+        /*
+            Send Socket to initialize external displays
+         */
     }
     @IBAction func timerClearButtonTapped(_ sender: NSButton) {
+        /*
+            Send Socket to clear external displays
+         */
     }
     @IBAction func timerStartButtonTapped(_ sender: NSButton) {
+        timeCommenced = NSDate()
+        timeFinished = nil
+        timerRunning = true
+        
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(startTimer), userInfo: nil, repeats: true)
     }
     @IBAction func timerStopButtonTapped(_ sender: NSButton) {
+        if timerRunning == true {
+            let now = NSDate()
+            timer?.invalidate()
+            timerRunning = false
+            timeFinished = now
+            
+            var currentTimeInterval: TimeInterval = now.timeIntervalSince(timeCommenced! as Date)
+            currentTimeInterval = currentTimeInterval + timeInterval
+            
+            timerLabel.stringValue = formatTime(interval: currentTimeInterval)
+            
+            timeInterval = currentTimeInterval
+        }
     }
     @IBAction func timerStopFirstButtonTapped(_ sender: NSButton) {
     }
@@ -89,6 +123,24 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
     }
     
     // MARK: - Functions
+    @objc func startTimer() {
+        if timerRunning == true {
+            let now = NSDate()
+            var currentTimeInterval: TimeInterval = now.timeIntervalSince(timeCommenced! as Date)
+            currentTimeInterval = currentTimeInterval + timeInterval
+            
+            timerLabel.stringValue = formatTime(interval: currentTimeInterval)
+        }
+    }
+    
+    func formatTime(interval: TimeInterval) -> String {
+        //let hours = Int(interval) / 3600
+        let minutes = Int(interval) / 60 % 60
+        let seconds = Int(interval) % 60
+        let milliseconds = Int((interval.truncatingRemainder(dividingBy: 1)) * 1000)
+        return String(format: "%02i:%02i:%03i", minutes, seconds, milliseconds)
+    }
+    
     @objc func newTeamResult(_ notification: NSNotification) {
         if let newTeamResult = notification.userInfo?["newTeamResult"] as? Team {
             teams.append(newTeamResult)
