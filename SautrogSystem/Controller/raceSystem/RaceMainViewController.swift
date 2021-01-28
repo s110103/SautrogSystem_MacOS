@@ -14,11 +14,15 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
     var timeFinished: NSDate?
     var timeInterval: TimeInterval = TimeInterval()
     var timer: Timer?
+    var timerHasBegan: Bool = false
     var timerRunning: Bool = false
     var firstTeamName: String?
     var secondTeamName: String?
     var firstTeamID: Int?
     var secondTeamID: Int?
+    
+    var currentFirstPopUpTeam: Team?
+    var currentSecondPopUpTeam: Team?
     
     var cellHeight: Int = 16
     var teams: [Team] = []
@@ -67,6 +71,7 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
         teams.append(Team(_teamID: 2, _teamName: "Team2", _teamFirstDriver: "Team2", _teamSecondDriver: "Team2", _teamSong: "Team2", _teamCostume: "Team2", _teamRemarks: "Team2", _teamGender: 0, _teamAnnotations: 0, _teamPayedFee: 0))
         
         teamListTableView.reloadData()
+        initPopUpButtons()
         
     }
     
@@ -82,8 +87,22 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
     
     // MARK: - Actions
     @IBAction func timerFirstTeamPopUpTapped(_ sender: NSPopUpButton) {
+        let index = sender.indexOfSelectedItem
+        
+        /*
+            Send Socket
+         */
+        
+        currentFirstPopUpTeam = teams[index]
     }
     @IBAction func timerSecondTeamPopUpTapped(_ sender: NSPopUpButton) {
+        let index = sender.indexOfSelectedItem
+        
+        /*
+            Send Socket
+         */
+        
+        currentSecondPopUpTeam = teams[index]
     }
     @IBAction func timerInitButtonTapped(_ sender: NSButton) {
         /*
@@ -96,25 +115,45 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
          */
     }
     @IBAction func timerStartButtonTapped(_ sender: NSButton) {
-        timeCommenced = NSDate()
-        timeFinished = nil
-        timerRunning = true
-        
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(startTimer), userInfo: nil, repeats: true)
+        if timerRunning == false {
+            timeCommenced = NSDate()
+            timeFinished = nil
+            timerRunning = true
+            
+            if timerHasBegan == false {
+                timerHasBegan = true
+            }
+            
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(startTimer), userInfo: nil, repeats: true)
+            
+            if timerStopButton.title == "Reset" {
+                timerStopButton.title = "Stop"
+            }
+        }
     }
     @IBAction func timerStopButtonTapped(_ sender: NSButton) {
-        if timerRunning == true {
-            let now = NSDate()
-            timer?.invalidate()
-            timerRunning = false
-            timeFinished = now
-            
-            var currentTimeInterval: TimeInterval = now.timeIntervalSince(timeCommenced! as Date)
-            currentTimeInterval = currentTimeInterval + timeInterval
-            
-            timerLabel.stringValue = formatTime(interval: currentTimeInterval)
-            
-            timeInterval = currentTimeInterval
+        if timerStopButton.title == "Stop" {
+            if timerRunning == true {
+                let now = NSDate()
+                timer?.invalidate()
+                timerRunning = false
+                timeFinished = now
+                
+                var currentTimeInterval: TimeInterval = now.timeIntervalSince(timeCommenced! as Date)
+                currentTimeInterval = currentTimeInterval + timeInterval
+                
+                timerLabel.stringValue = formatTime(interval: currentTimeInterval)
+                
+                timeInterval = currentTimeInterval
+                timerStopButton.title = "Reset"
+            }
+        } else if timerStopButton.title == "Reset" {
+            timerStopButton.title = "Stop"
+            timeInterval = TimeInterval()
+            timerHasBegan = false
+            timeCommenced = nil
+            timeFinished = nil
+            timerLabel.stringValue = "00:00,000"
         }
     }
     @IBAction func timerStopFirstButtonTapped(_ sender: NSButton) {
@@ -123,32 +162,6 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
     }
     
     // MARK: - Functions
-    @objc func startTimer() {
-        if timerRunning == true {
-            let now = NSDate()
-            var currentTimeInterval: TimeInterval = now.timeIntervalSince(timeCommenced! as Date)
-            currentTimeInterval = currentTimeInterval + timeInterval
-            
-            timerLabel.stringValue = formatTime(interval: currentTimeInterval)
-        }
-    }
-    
-    func formatTime(interval: TimeInterval) -> String {
-        //let hours = Int(interval) / 3600
-        let minutes = Int(interval) / 60 % 60
-        let seconds = Int(interval) % 60
-        let milliseconds = Int((interval.truncatingRemainder(dividingBy: 1)) * 1000)
-        return String(format: "%02i:%02i:%03i", minutes, seconds, milliseconds)
-    }
-    
-    @objc func newTeamResult(_ notification: NSNotification) {
-        if let newTeamResult = notification.userInfo?["newTeamResult"] as? Team {
-            teams.append(newTeamResult)
-            
-            teamListTableView.reloadData()
-        }
-    }
-    
     func numberOfRows(in tableView: NSTableView) -> Int {
         teams.count
     }
@@ -210,6 +223,59 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
         label.font = font
         
         return label
+    }
+    
+    @objc func startTimer() {
+        if timerRunning == true {
+            let now = NSDate()
+            var currentTimeInterval: TimeInterval = now.timeIntervalSince(timeCommenced! as Date)
+            currentTimeInterval = currentTimeInterval + timeInterval
+            
+            timerLabel.stringValue = formatTime(interval: currentTimeInterval)
+        }
+    }
+    
+    func formatTime(interval: TimeInterval) -> String {
+        let minutes = Int(interval) / 60 % 60
+        let seconds = Int(interval) % 60
+        let milliseconds = Int((interval.truncatingRemainder(dividingBy: 1)) * 1000)
+        return String(format: "%02i:%02i:%03i", minutes, seconds, milliseconds)
+    }
+    
+    @objc func newTeamResult(_ notification: NSNotification) {
+        if let newTeamResult = notification.userInfo?["newTeamResult"] as? Team {
+            teams.append(newTeamResult)
+            
+            teamListTableView.reloadData()
+            initPopUpButtons()
+        }
+    }
+    
+    func initPopUpButtons() {
+        timerFirstTeamPopUp.removeAllItems()
+        timerSecondTeamPopUp.removeAllItems()
+                
+        for i in teams {
+            timerFirstTeamPopUp.addItem(withTitle: i.teamName)
+            timerSecondTeamPopUp.addItem(withTitle: i.teamName)
+        }
+        
+        if teams.count == 0 {
+            currentFirstPopUpTeam = nil
+            currentSecondPopUpTeam = nil
+        } else if teams.count == 1 {
+            currentFirstPopUpTeam = teams.first
+            currentSecondPopUpTeam = nil
+            
+            timerFirstTeamPopUp.selectItem(at: 0)
+            timerSecondTeamPopUp.title = "-"
+        } else if teams.count >= 2 {
+            currentFirstPopUpTeam = teams.first
+            currentSecondPopUpTeam = teams[1]
+            
+            timerFirstTeamPopUp.selectItem(at: 0)
+            timerSecondTeamPopUp.selectItem(at: 1)
+        }
     }
 }
 
