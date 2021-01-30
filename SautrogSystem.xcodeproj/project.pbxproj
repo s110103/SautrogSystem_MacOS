@@ -27,6 +27,7 @@
 		069FD61225BE0D2E00B6BAA5 /* ArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069FD61125BE0D2E00B6BAA5 /* ArrayUtils.swift */; };
 		06B474CA25B614BF0052BF43 /* RaceListTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B474C925B614BF0052BF43 /* RaceListTableCellView.swift */; };
 		06F7F1F325C5B95200871558 /* StopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F7F1F225C5B95200871558 /* StopButton.swift */; };
+		06F7F1F625C5C24100871558 /* Competition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F7F1F525C5C24100871558 /* Competition.swift */; };
 		480D3267EE6E9AEE8123F534 /* Pods_SautrogSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9FD03D794157C2315E91B74 /* Pods_SautrogSystem.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		069FD61125BE0D2E00B6BAA5 /* ArrayUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayUtils.swift; sourceTree = "<group>"; };
 		06B474C925B614BF0052BF43 /* RaceListTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceListTableCellView.swift; sourceTree = "<group>"; };
 		06F7F1F225C5B95200871558 /* StopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopButton.swift; sourceTree = "<group>"; };
+		06F7F1F525C5C24100871558 /* Competition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Competition.swift; sourceTree = "<group>"; };
 		5D2595AC1C72335BBDD59B4C /* Pods-SautrogSystem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SautrogSystem.debug.xcconfig"; path = "Target Support Files/Pods-SautrogSystem/Pods-SautrogSystem.debug.xcconfig"; sourceTree = "<group>"; };
 		D9FD03D794157C2315E91B74 /* Pods_SautrogSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SautrogSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4BE172FFB1E7B4E8E024396 /* Pods-SautrogSystem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SautrogSystem.release.xcconfig"; path = "Target Support Files/Pods-SautrogSystem/Pods-SautrogSystem.release.xcconfig"; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				069FD5E825BDA9F100B6BAA5 /* Team.swift */,
+				06F7F1F525C5C24100871558 /* Competition.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				0671A1C625B4AD5A002C3635 /* AppDelegate.swift in Sources */,
 				06B474CA25B614BF0052BF43 /* RaceListTableCellView.swift in Sources */,
 				069FD5E925BDA9F100B6BAA5 /* Team.swift in Sources */,
+				06F7F1F625C5C24100871558 /* Competition.swift in Sources */,
 				069FD5F925BDAC3000B6BAA5 /* RaceMainViewController.swift in Sources */,
 				069FD5EF25BDABE500B6BAA5 /* RaceWindowController.swift in Sources */,
 				0671A20C25B4BE73002C3635 /* SplitViewController.swift in Sources */,

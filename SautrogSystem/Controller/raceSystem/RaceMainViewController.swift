@@ -21,6 +21,8 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
     var firstTeamID: Int?
     var secondTeamID: Int?
     
+    var currentCompetition: Competition?
+    
     var currentFirstPopUpTeam: Team?
     var currentSecondPopUpTeam: Team?
     
@@ -108,6 +110,10 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
         /*
             Send Socket to initialize external displays
          */
+        
+        if currentFirstPopUpTeam != nil && currentSecondPopUpTeam != nil {
+            currentCompetition = Competition(_competitionId: getNewUniqueId(), _firstTeam: currentFirstPopUpTeam!, _secondTeam: currentSecondPopUpTeam!, _timeInitiated: NSDate())
+        }
     }
     @IBAction func timerClearButtonTapped(_ sender: NSButton) {
         /*
@@ -162,9 +168,9 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
         }
     }
     
-    @IBAction func timerStopFirstButtonTapped(_ sender: NSButton) {
+    @IBAction func timerStopFirstButtonTapped(_ sender: StopButton) {
     }
-    @IBAction func timerStopSecondButtonTapped(_ sender: NSButton) {
+    @IBAction func timerStopSecondButtonTapped(_ sender: StopButton) {
     }
     
     // MARK: - Functions
@@ -330,5 +336,9 @@ extension RaceMainViewController {
         print(newRow)
 
         return true
+    }
+    
+    func getNewUniqueId() -> Int {
+        return 0
     }
 }

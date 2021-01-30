@@ -1448,7 +1448,7 @@
                                                             <action selector="timerStartButtonTapped:" target="Tv0-GA-LXI" id="z45-iL-A6X"/>
                                                         </connections>
                                                     </button>
-                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kJw-eq-Kcg">
+                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kJw-eq-Kcg" customClass="StopButton" customModule="SautrogSystem" customModuleProvider="target">
                                                         <rect key="frame" x="19" y="10" width="157" height="33"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="Il8-YU-BN3"/>
@@ -1461,7 +1461,7 @@
                                                             <action selector="timerStopFirstButtonTapped:" target="Tv0-GA-LXI" id="iAD-ZK-4B7"/>
                                                         </connections>
                                                     </button>
-                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wDP-SF-Vos">
+                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wDP-SF-Vos" customClass="StopButton" customModule="SautrogSystem" customModuleProvider="target">
                                                         <rect key="frame" x="182" y="10" width="164" height="33"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="IOA-Pm-sJ0"/>
