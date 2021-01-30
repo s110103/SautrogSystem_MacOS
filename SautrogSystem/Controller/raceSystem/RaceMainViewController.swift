@@ -131,31 +131,37 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
             }
         }
     }
-    @IBAction func timerStopButtonTapped(_ sender: NSButton) {
-        if timerStopButton.title == "Stop" {
-            if timerRunning == true {
-                let now = NSDate()
-                timer?.invalidate()
-                timerRunning = false
-                timeFinished = now
-                
-                var currentTimeInterval: TimeInterval = now.timeIntervalSince(timeCommenced! as Date)
-                currentTimeInterval = currentTimeInterval + timeInterval
-                
-                timerLabel.stringValue = formatTime(interval: currentTimeInterval)
-                
-                timeInterval = currentTimeInterval
-                timerStopButton.title = "Reset"
+    @IBAction func timerStopButtonTapped(_ sender: StopButton) {
+        
+        let currentEvent = NSApp.currentEvent
+        
+        if currentEvent?.type == .leftMouseDown {
+            if timerStopButton.title == "Stop" {
+                if timerRunning == true {
+                    let now = NSDate()
+                    timer?.invalidate()
+                    timerRunning = false
+                    timeFinished = now
+                    
+                    var currentTimeInterval: TimeInterval = now.timeIntervalSince(timeCommenced! as Date)
+                    currentTimeInterval = currentTimeInterval + timeInterval
+                    
+                    timerLabel.stringValue = formatTime(interval: currentTimeInterval)
+                    
+                    timeInterval = currentTimeInterval
+                    timerStopButton.title = "Reset"
+                }
+            } else if timerStopButton.title == "Reset" {
+                timerStopButton.title = "Stop"
+                timeInterval = TimeInterval()
+                timerHasBegan = false
+                timeCommenced = nil
+                timeFinished = nil
+                timerLabel.stringValue = "00:00,000"
             }
-        } else if timerStopButton.title == "Reset" {
-            timerStopButton.title = "Stop"
-            timeInterval = TimeInterval()
-            timerHasBegan = false
-            timeCommenced = nil
-            timeFinished = nil
-            timerLabel.stringValue = "00:00,000"
         }
     }
+    
     @IBAction func timerStopFirstButtonTapped(_ sender: NSButton) {
     }
     @IBAction func timerStopSecondButtonTapped(_ sender: NSButton) {

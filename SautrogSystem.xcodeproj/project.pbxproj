@@ -26,6 +26,7 @@
 		069FD60A25BDC64C00B6BAA5 /* SautrogSystemApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069FD60925BDC64C00B6BAA5 /* SautrogSystemApplication.swift */; };
 		069FD61225BE0D2E00B6BAA5 /* ArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069FD61125BE0D2E00B6BAA5 /* ArrayUtils.swift */; };
 		06B474CA25B614BF0052BF43 /* RaceListTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B474C925B614BF0052BF43 /* RaceListTableCellView.swift */; };
+		06F7F1F325C5B95200871558 /* StopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F7F1F225C5B95200871558 /* StopButton.swift */; };
 		480D3267EE6E9AEE8123F534 /* Pods_SautrogSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9FD03D794157C2315E91B74 /* Pods_SautrogSystem.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		069FD60925BDC64C00B6BAA5 /* SautrogSystemApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SautrogSystemApplication.swift; sourceTree = "<group>"; };
 		069FD61125BE0D2E00B6BAA5 /* ArrayUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayUtils.swift; sourceTree = "<group>"; };
 		06B474C925B614BF0052BF43 /* RaceListTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceListTableCellView.swift; sourceTree = "<group>"; };
+		06F7F1F225C5B95200871558 /* StopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopButton.swift; sourceTree = "<group>"; };
 		5D2595AC1C72335BBDD59B4C /* Pods-SautrogSystem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SautrogSystem.debug.xcconfig"; path = "Target Support Files/Pods-SautrogSystem/Pods-SautrogSystem.debug.xcconfig"; sourceTree = "<group>"; };
 		D9FD03D794157C2315E91B74 /* Pods_SautrogSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SautrogSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4BE172FFB1E7B4E8E024396 /* Pods-SautrogSystem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SautrogSystem.release.xcconfig"; path = "Target Support Files/Pods-SautrogSystem/Pods-SautrogSystem.release.xcconfig"; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			children = (
 				06B474C925B614BF0052BF43 /* RaceListTableCellView.swift */,
 				0699826525B8875F00E78D87 /* HomeWindow.swift */,
+				06F7F1F225C5B95200871558 /* StopButton.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				0671A1CB25B4AD5A002C3635 /* SautrogSystem.xcdatamodeld in Sources */,
 				069FD5F225BDAC0400B6BAA5 /* RaceSplitViewController.swift in Sources */,
 				0671A21925B4D68C002C3635 /* RaceListViewController.swift in Sources */,
+				06F7F1F325C5B95200871558 /* StopButton.swift in Sources */,
 				0671A21425B4D666002C3635 /* HomeViewController.swift in Sources */,
 				0671A20825B4BE4C002C3635 /* WindowController.swift in Sources */,
 				069FD61225BE0D2E00B6BAA5 /* ArrayUtils.swift in Sources */,

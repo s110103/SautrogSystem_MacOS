@@ -1017,7 +1017,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="750" height="500"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView autohidesScrollers="YES" horizontalLineScroll="17" horizontalPageScroll="10" verticalLineScroll="17" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YwM-xo-GNL">
+                            <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="17" horizontalPageScroll="10" verticalLineScroll="17" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YwM-xo-GNL">
                                 <rect key="frame" x="0.0" y="0.0" width="750" height="278"/>
                                 <clipView key="contentView" drawsBackground="NO" id="OUZ-kd-JPc">
                                     <rect key="frame" x="1" y="1" width="748" height="276"/>
@@ -1322,6 +1322,9 @@
                                             </tableColumns>
                                         </tableView>
                                     </subviews>
+                                    <shadow key="shadow">
+                                        <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </shadow>
                                     <nil key="backgroundColor"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="7hU-iY-ldJ">
@@ -1485,7 +1488,7 @@
                                                             <action selector="timerInitButtonTapped:" target="Tv0-GA-LXI" id="zM3-pt-dYY"/>
                                                         </connections>
                                                     </button>
-                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uZ8-si-d42">
+                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uZ8-si-d42" customClass="StopButton" customModule="SautrogSystem" customModuleProvider="target">
                                                         <rect key="frame" x="230" y="45" width="116" height="33"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="SEU-Ot-scJ"/>
@@ -1495,7 +1498,7 @@
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
                                                         <connections>
-                                                            <action selector="timerStopButtonTapped:" target="Tv0-GA-LXI" id="H81-Io-vYg"/>
+                                                            <action selector="timerStopButtonTapped:" target="Tv0-GA-LXI" id="MIh-bN-Hgo"/>
                                                         </connections>
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TgW-A7-8OV">
