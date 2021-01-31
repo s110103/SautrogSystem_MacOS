@@ -228,14 +228,23 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
                     currentCompetition?.timeWinnerFinished = currentDate
                     timerFirstLabel.stringValue = formatTime(interval: currentTimeInterval)
                     timerStopFirstButton.title = "Stop 2"
+                    currentFirstPopUpTeam?.teamRunInterval = currentTimeInterval
+                    teams.remove(at: firstTeamID!)
+                    teams.insert(currentFirstPopUpTeam!, at: firstTeamID!)
                 } else {
                     if looserTeam == nil {
                         if winnerTeam == 1 {
                             looserTeam = 2
                             timerSecondLabel.stringValue = formatTime(interval: currentTimeInterval)
+                            currentSecondPopUpTeam?.teamRunInterval = currentTimeInterval
+                            teams.remove(at: secondTeamID!)
+                            teams.insert(currentSecondPopUpTeam!, at: secondTeamID!)
                         } else {
                             looserTeam = 1
                             timerFirstLabel.stringValue = formatTime(interval: currentTimeInterval)
+                            currentFirstPopUpTeam?.teamRunInterval = currentTimeInterval
+                            teams.remove(at: firstTeamID!)
+                            teams.insert(currentFirstPopUpTeam!, at: firstTeamID!)
                         }
                         currentCompetition?.looserTeam = looserTeam!
                         currentCompetition?.winnerTimeInterval = currentTimeInterval
@@ -249,6 +258,7 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
                         
                         timerLabel.stringValue = formatTime(interval: currentTimeInterval)
                         timerStopFirstButton.title = "Stop 1"
+                        teamListTableView.reloadData()
                     }
                 }
             }
@@ -275,14 +285,23 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
                     currentCompetition?.timeWinnerFinished = currentDate
                     timerSecondLabel.stringValue = formatTime(interval: currentTimeInterval)
                     timerStopSecondButton.title = "Stop 1"
+                    currentSecondPopUpTeam?.teamRunInterval = currentTimeInterval
+                    teams.remove(at: secondTeamID!)
+                    teams.insert(currentSecondPopUpTeam!, at: secondTeamID!)
                 } else {
                     if looserTeam == nil {
                         if winnerTeam == 1 {
                             looserTeam = 2
                             timerSecondLabel.stringValue = formatTime(interval: currentTimeInterval)
+                            currentSecondPopUpTeam?.teamRunInterval = currentTimeInterval
+                            teams.remove(at: secondTeamID!)
+                            teams.insert(currentSecondPopUpTeam!, at: secondTeamID!)
                         } else {
                             looserTeam = 1
                             timerFirstLabel.stringValue = formatTime(interval: currentTimeInterval)
+                            currentFirstPopUpTeam?.teamRunInterval = currentTimeInterval
+                            teams.remove(at: firstTeamID!)
+                            teams.insert(currentFirstPopUpTeam!, at: firstTeamID!)
                         }
                         currentCompetition?.looserTeam = looserTeam!
                         currentCompetition?.winnerTimeInterval = currentTimeInterval
@@ -296,6 +315,7 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
                         
                         timerLabel.stringValue = formatTime(interval: currentTimeInterval)
                         timerStopSecondButton.title = "Stop 2"
+                        teamListTableView.reloadData()
                     }
                 }
             }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		064BA77225C6D01600D19099 /* VerticallyCenteredTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064BA77125C6D01600D19099 /* VerticallyCenteredTextFieldCell.swift */; };
+		064BA7B225C739AC00D19099 /* TimeFormattedTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064BA7B125C739AC00D19099 /* TimeFormattedTableCellView.swift */; };
 		0671A1C625B4AD5A002C3635 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0671A1C525B4AD5A002C3635 /* AppDelegate.swift */; };
 		0671A1CB25B4AD5A002C3635 /* SautrogSystem.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0671A1C925B4AD5A002C3635 /* SautrogSystem.xcdatamodeld */; };
 		0671A1CD25B4AD5B002C3635 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0671A1CC25B4AD5B002C3635 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		064BA77125C6D01600D19099 /* VerticallyCenteredTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticallyCenteredTextFieldCell.swift; sourceTree = "<group>"; };
+		064BA7B125C739AC00D19099 /* TimeFormattedTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormattedTableCellView.swift; sourceTree = "<group>"; };
 		0671A1C225B4AD5A002C3635 /* SautrogSystem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SautrogSystem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0671A1C525B4AD5A002C3635 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0671A1CA25B4AD5A002C3635 /* SautrogSystem.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SautrogSystem.xcdatamodel; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				0699826525B8875F00E78D87 /* HomeWindow.swift */,
 				06F7F1F225C5B95200871558 /* StopButton.swift */,
 				064BA77125C6D01600D19099 /* VerticallyCenteredTextFieldCell.swift */,
+				064BA7B125C739AC00D19099 /* TimeFormattedTableCellView.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				069FD61225BE0D2E00B6BAA5 /* ArrayUtils.swift in Sources */,
 				0699826625B8875F00E78D87 /* HomeWindow.swift in Sources */,
 				069FD60A25BDC64C00B6BAA5 /* SautrogSystemApplication.swift in Sources */,
+				064BA7B225C739AC00D19099 /* TimeFormattedTableCellView.swift in Sources */,
 				0671A1C625B4AD5A002C3635 /* AppDelegate.swift in Sources */,
 				064BA77225C6D01600D19099 /* VerticallyCenteredTextFieldCell.swift in Sources */,
 				06B474CA25B614BF0052BF43 /* RaceListTableCellView.swift in Sources */,
