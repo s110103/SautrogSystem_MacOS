@@ -20,13 +20,16 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
     var secondTeamName: String?
     var firstTeamID: Int?
     var secondTeamID: Int?
+    var winnerTeam: Int?
+    var looserTeam: Int?
+    var expectClearence: Bool = false
     
     var currentCompetition: Competition?
     
     var currentFirstPopUpTeam: Team?
     var currentSecondPopUpTeam: Team?
     
-    var cellHeight: Int = 16
+    var cellHeight: Int = 25
     var teams: [Team] = []
     
     let teamPasteboardType = NSPasteboard.PasteboardType(rawValue: "teams.team")
@@ -49,6 +52,8 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
     @IBOutlet weak var timerStopButton: NSButton!
     @IBOutlet weak var timerStopFirstButton: NSButton!
     @IBOutlet weak var timerStopSecondButton: NSButton!
+    @IBOutlet weak var timerFirstLabel: NSTextField!
+    @IBOutlet weak var timerSecondLabel: NSTextField!
     
     
     // MARK: - Lifecycle
@@ -96,6 +101,7 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
          */
         
         currentFirstPopUpTeam = teams[index]
+        firstTeamID = index
     }
     @IBAction func timerSecondTeamPopUpTapped(_ sender: NSPopUpButton) {
         let index = sender.indexOfSelectedItem
@@ -105,6 +111,7 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
          */
         
         currentSecondPopUpTeam = teams[index]
+        secondTeamID = index
     }
     @IBAction func timerInitButtonTapped(_ sender: NSButton) {
         /*
@@ -113,28 +120,60 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
         
         if currentFirstPopUpTeam != nil && currentSecondPopUpTeam != nil {
             currentCompetition = Competition(_competitionId: getNewUniqueId(), _firstTeam: currentFirstPopUpTeam!, _secondTeam: currentSecondPopUpTeam!, _timeInitiated: NSDate())
+        } else {
+            let alert = NSAlert()
+            alert.messageText = "Fehler"
+            alert.informativeText = "Mindestens eines der Teams konnte nicht übertragen werden!"
+            alert.runModal()
         }
     }
     @IBAction func timerClearButtonTapped(_ sender: NSButton) {
         /*
             Send Socket to clear external displays
          */
+        
+        initPopUpButtons()
+        timerRunning = false
+        timerHasBegan = false
+        timer?.invalidate()
+        timer = nil
+        timeCommenced = nil
+        timeFinished = nil
+        timeInterval = TimeInterval()
+        timerLabel.stringValue = "00:00,000"
+        timerFirstLabel.stringValue = "00:00,000"
+        timerSecondLabel.stringValue = "00:00,000"
+        winnerTeam = nil
+        looserTeam = nil
+        currentCompetition = nil
+        expectClearence = false
+        timerStopButton.title = "Stop"
+        timerStopFirstButton.title = "Stop 1"
+        timerStopSecondButton.title = "Stop 2"
     }
     @IBAction func timerStartButtonTapped(_ sender: NSButton) {
-        if timerRunning == false {
-            timeCommenced = NSDate()
-            timeFinished = nil
-            timerRunning = true
-            
-            if timerHasBegan == false {
-                timerHasBegan = true
+        if expectClearence == false {
+            if timerRunning == false {
+                timeCommenced = NSDate()
+                timeFinished = nil
+                timerRunning = true
+                
+                if timerHasBegan == false {
+                    timerHasBegan = true
+                }
+                
+                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(startTimer), userInfo: nil, repeats: true)
+                
+                if timerStopButton.title == "Reset" {
+                    timerStopButton.title = "Stop"
+                }
+                expectClearence = true
             }
-            
-            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(startTimer), userInfo: nil, repeats: true)
-            
-            if timerStopButton.title == "Reset" {
-                timerStopButton.title = "Stop"
-            }
+        } else {
+            let alert = NSAlert()
+            alert.messageText = "Fehler"
+            alert.informativeText = "Der Timer muss zuerst mit der Clear Funktion zurückgesetzt werden!"
+            alert.runModal()
         }
     }
     @IBAction func timerStopButtonTapped(_ sender: StopButton) {
@@ -169,8 +208,98 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
     }
     
     @IBAction func timerStopFirstButtonTapped(_ sender: StopButton) {
+        
+        let currentEvent = NSApp.currentEvent
+        
+        if currentEvent?.type == .leftMouseDown {
+            if timerRunning == true {
+                let currentDate: NSDate = NSDate()
+                var currentTimeInterval: TimeInterval = currentDate.timeIntervalSince(timeCommenced! as Date)
+                currentTimeInterval = currentTimeInterval + timeInterval
+                
+                /*
+                    Send Socket
+                 */
+                
+                if winnerTeam == nil {
+                    winnerTeam = 1
+                    currentCompetition?.winnerTeam = winnerTeam!
+                    currentCompetition?.winnerTimeInterval = currentTimeInterval
+                    currentCompetition?.timeWinnerFinished = currentDate
+                    timerFirstLabel.stringValue = formatTime(interval: currentTimeInterval)
+                    timerStopFirstButton.title = "Stop 2"
+                } else {
+                    if looserTeam == nil {
+                        if winnerTeam == 1 {
+                            looserTeam = 2
+                            timerSecondLabel.stringValue = formatTime(interval: currentTimeInterval)
+                        } else {
+                            looserTeam = 1
+                            timerFirstLabel.stringValue = formatTime(interval: currentTimeInterval)
+                        }
+                        currentCompetition?.looserTeam = looserTeam!
+                        currentCompetition?.winnerTimeInterval = currentTimeInterval
+                        currentCompetition?.timeLooserFinished = currentDate
+                        
+                        timer?.invalidate()
+                        timerRunning = false
+                        timerHasBegan = false
+                        timeFinished = currentDate
+                        timeInterval = currentTimeInterval
+                        
+                        timerLabel.stringValue = formatTime(interval: currentTimeInterval)
+                        timerStopFirstButton.title = "Stop 1"
+                    }
+                }
+            }
+        }
     }
     @IBAction func timerStopSecondButtonTapped(_ sender: StopButton) {
+        
+        let currentEvent = NSApp.currentEvent
+        
+        if currentEvent?.type == .leftMouseDown {
+            if timerRunning == true {
+                let currentDate: NSDate = NSDate()
+                var currentTimeInterval: TimeInterval = currentDate.timeIntervalSince(timeCommenced! as Date)
+                currentTimeInterval = currentTimeInterval + timeInterval
+                
+                /*
+                    Send Socket
+                 */
+                
+                if winnerTeam == nil {
+                    winnerTeam = 2
+                    currentCompetition?.winnerTeam = winnerTeam!
+                    currentCompetition?.winnerTimeInterval = currentTimeInterval
+                    currentCompetition?.timeWinnerFinished = currentDate
+                    timerSecondLabel.stringValue = formatTime(interval: currentTimeInterval)
+                    timerStopSecondButton.title = "Stop 1"
+                } else {
+                    if looserTeam == nil {
+                        if winnerTeam == 1 {
+                            looserTeam = 2
+                            timerSecondLabel.stringValue = formatTime(interval: currentTimeInterval)
+                        } else {
+                            looserTeam = 1
+                            timerFirstLabel.stringValue = formatTime(interval: currentTimeInterval)
+                        }
+                        currentCompetition?.looserTeam = looserTeam!
+                        currentCompetition?.winnerTimeInterval = currentTimeInterval
+                        currentCompetition?.timeLooserFinished = currentDate
+                        
+                        timer?.invalidate()
+                        timerRunning = false
+                        timerHasBegan = false
+                        timeFinished = currentDate
+                        timeInterval = currentTimeInterval
+                        
+                        timerLabel.stringValue = formatTime(interval: currentTimeInterval)
+                        timerStopSecondButton.title = "Stop 2"
+                    }
+                }
+            }
+        }
     }
     
     // MARK: - Functions
@@ -223,14 +352,15 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
     func makeLabel(_ text: String, _ width: CGFloat, _ align: NSTextAlignment = .left) -> NSTextField {
         let rect = CGRect(x: 0, y: 0, width: Int(width), height: cellHeight);
         let label = NSTextField(frame: rect)
+        label.cell = VerticallyCenteredTextFieldCell()
         label.stringValue = text
         label.isEditable = false
         label.isBezeled = false
         label.drawsBackground = false
         
-        label.alignment = align
+        label.alignment = .center
         
-        let font = NSFont(name: "Arial", size: 16)
+        let font = NSFont(name: "Arial", size: 14)
         
         label.font = font
         
@@ -275,18 +405,24 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
         if teams.count == 0 {
             currentFirstPopUpTeam = nil
             currentSecondPopUpTeam = nil
+            firstTeamID = -1
+            secondTeamID = -1
         } else if teams.count == 1 {
             currentFirstPopUpTeam = teams.first
             currentSecondPopUpTeam = nil
             
             timerFirstTeamPopUp.selectItem(at: 0)
             timerSecondTeamPopUp.title = "-"
+            firstTeamID = 0
+            secondTeamID = -1
         } else if teams.count >= 2 {
             currentFirstPopUpTeam = teams.first
             currentSecondPopUpTeam = teams[1]
             
             timerFirstTeamPopUp.selectItem(at: 0)
             timerSecondTeamPopUp.selectItem(at: 1)
+            firstTeamID = 0
+            secondTeamID = 1
         }
     }
 }
