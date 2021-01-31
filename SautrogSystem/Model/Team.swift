@@ -7,21 +7,21 @@
 
 import Foundation
 
-class Team: Equatable {
+class Team: NSObject {
     
-    var teamID: Int = 0
-    var teamName: String = ""
-    var teamFirstDriver: String = ""
-    var teamSecondDriver: String = ""
-    var teamSong: String = ""
-    var teamCostume: String = ""
-    var teamRemarks: String = ""
-    var teamGender: Int = 0
-    var teamAnnotations: Int = 0
-    var teamPayedFee: Int = 0
-    var teamCommencedRun: NSDate = NSDate()
-    var teamFinishedRun: NSDate = NSDate()
-    var teamRunInterval: TimeInterval = TimeInterval()
+    @objc dynamic var teamID: Int = 0
+    @objc dynamic var teamName: String = ""
+    @objc dynamic var teamFirstDriver: String = ""
+    @objc dynamic var teamSecondDriver: String = ""
+    @objc dynamic var teamSong: String = ""
+    @objc dynamic var teamCostume: String = ""
+    @objc dynamic var teamRemarks: String = ""
+    @objc dynamic var teamGender: Int = 0
+    @objc dynamic var teamAnnotations: Int = 0
+    @objc dynamic var teamPayedFee: Int = 0
+    @objc dynamic var teamCommencedRun: NSDate = NSDate()
+    @objc dynamic var teamFinishedRun: NSDate = NSDate()
+    @objc dynamic var teamRunInterval: TimeInterval = TimeInterval()
     
     init(_teamId: Int) {
         self.teamID = _teamId

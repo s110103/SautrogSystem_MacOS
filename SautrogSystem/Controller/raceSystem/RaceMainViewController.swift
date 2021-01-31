@@ -30,7 +30,7 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
     var currentSecondPopUpTeam: Team?
     
     var cellHeight: Int = 25
-    var teams: [Team] = []
+    @objc dynamic var teams: [Team] = []
     
     let teamPasteboardType = NSPasteboard.PasteboardType(rawValue: "teams.team")
     
@@ -67,6 +67,7 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
         teamListTableView.dataSource = self
         
         teamListTableView.registerForDraggedTypes([teamPasteboardType])
+        teamListTableView.backgroundColor = NSColor.clear
         
         
         var frame = self.view.window?.frame
@@ -74,12 +75,11 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
         frame?.size = initialSize
         self.view.window?.setFrame(frame!, display: true)
         
-        teams.append(Team(_teamID: 1, _teamName: "Team", _teamFirstDriver: "Team", _teamSecondDriver: "Team", _teamSong: "Team", _teamCostume: "Team", _teamRemarks: "Team", _teamGender: 0, _teamAnnotations: 0, _teamPayedFee: 0))
-        teams.append(Team(_teamID: 2, _teamName: "Team2", _teamFirstDriver: "Team2", _teamSecondDriver: "Team2", _teamSong: "Team2", _teamCostume: "Team2", _teamRemarks: "Team2", _teamGender: 0, _teamAnnotations: 0, _teamPayedFee: 0))
+        teams.append(Team(_teamID: 1, _teamName: "Team1", _teamFirstDriver: "1 Fahrer 1", _teamSecondDriver: "1 Fahrer 2", _teamSong: "Song 1", _teamCostume: "Kostüm 1", _teamRemarks: "Bemerkungen 1", _teamGender: 0, _teamAnnotations: 0, _teamPayedFee: 0))
+        teams.append(Team(_teamID: 2, _teamName: "Team2", _teamFirstDriver: "2 Fahrer 1", _teamSecondDriver: "2 Fahrer 2", _teamSong: "Song 2", _teamCostume: "Kostüm 2", _teamRemarks: "Bemerkungen 2", _teamGender: 0, _teamAnnotations: 0, _teamPayedFee: 0))
         
         teamListTableView.reloadData()
         initPopUpButtons()
-        
     }
     
     override func viewWillAppear() {
@@ -311,60 +311,8 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
         return 25
     }
     
-    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        if let colid = tableColumn?.identifier {
-            let width = tableColumn?.width
-            let formatter = NumberFormatter()
-            formatter.usesGroupingSeparator = true
-            
-            switch colid.rawValue {
-            case "teamColumn":
-                return makeLabel(teams[row].teamName, width!)
-            case "firstDriverColumn":
-                return makeLabel(teams[row].teamFirstDriver, width!)
-            case "secondDriverColumn":
-                return makeLabel(teams[row].teamSecondDriver, width!)
-            case "remarksColumn":
-                return makeLabel(teams[row].teamRemarks, width!)
-            case "songColumn":
-                return makeLabel(teams[row].teamSong, width!)
-            case "costumeColumn":
-                return makeLabel(teams[row].teamCostume, width!)
-            case "payedFeeColumn":
-                return makeLabel(String(teams[row].teamPayedFee), width!)
-            case "genderColumn":
-                return makeLabel(String(teams[row].teamGender), width!)
-            case "timeIntervalColumn":
-                return makeLabel(String(teams[row].teamRunInterval), width!)
-            default:
-                break
-            }
-        }
-        
-        return nil
-    }
-    
     func tableViewSelectionDidChange(_ notification: Notification) {
         teamListTableView.deselectRow(teamListTableView.selectedRow)
-    }
-    
-    
-    func makeLabel(_ text: String, _ width: CGFloat, _ align: NSTextAlignment = .left) -> NSTextField {
-        let rect = CGRect(x: 0, y: 0, width: Int(width), height: cellHeight);
-        let label = NSTextField(frame: rect)
-        label.cell = VerticallyCenteredTextFieldCell()
-        label.stringValue = text
-        label.isEditable = false
-        label.isBezeled = false
-        label.drawsBackground = false
-        
-        label.alignment = .center
-        
-        let font = NSFont(name: "Arial", size: 14)
-        
-        label.font = font
-        
-        return label
     }
     
     @objc func startTimer() {
@@ -425,10 +373,15 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
             secondTeamID = 1
         }
     }
+    
+    func getNewUniqueId() -> Int {
+        return 0
+    }
 }
 
 // MARK: - ReOrder
 
+/*
 extension RaceMainViewController {
     
     func tableView(_ tableView: NSTableView, pasteboardWriterForRow row: Int) -> NSPasteboardWriting? {
@@ -473,8 +426,5 @@ extension RaceMainViewController {
 
         return true
     }
-    
-    func getNewUniqueId() -> Int {
-        return 0
-    }
 }
+*/
