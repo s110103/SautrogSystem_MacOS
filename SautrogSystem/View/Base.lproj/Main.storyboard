@@ -744,12 +744,19 @@
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="O8z-Hb-BON"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="qxG-jq-v4q"/>
-                                <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="mcb-Dx-UlI"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="mcb-Dx-UlI">
+                                    <connections>
+                                        <action selector="printButtonTapped:" target="Jb0-6M-8f1" id="BdH-R9-fTm"/>
+                                    </connections>
+                                </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="fD9-8k-YBz"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="DtW-2y-TXS"/>
-                                <toolbarItem implicitItemIdentifier="E7E551C4-E2C1-42A2-BA0B-326DAAC9FC6F" label="Toolbar Item" paletteLabel="Toolbar Item" tag="-1" image="NSLockUnlockedTemplate" selectable="YES" id="GrO-du-4LQ">
+                                <toolbarItem implicitItemIdentifier="E7E551C4-E2C1-42A2-BA0B-326DAAC9FC6F" label="Lock" paletteLabel="Lock" tag="-1" image="NSLockUnlockedTemplate" selectable="YES" id="GrO-du-4LQ">
                                     <size key="minSize" width="40.5" height="28"/>
                                     <size key="maxSize" width="40.5" height="28"/>
+                                    <connections>
+                                        <action selector="lockButtonTapped:" target="Jb0-6M-8f1" id="u7M-Y0-5wN"/>
+                                    </connections>
                                 </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
@@ -763,6 +770,9 @@
                         </connections>
                     </window>
                     <connections>
+                        <outlet property="raceLock" destination="GrO-du-4LQ" id="Pdp-GC-eDa"/>
+                        <outlet property="racePrint" destination="mcb-Dx-UlI" id="uhc-wd-L00"/>
+                        <outlet property="raceToolbar" destination="1K1-61-lRq" id="Qlb-NR-9E1"/>
                         <segue destination="nIR-ak-dn8" kind="relationship" relationship="window.shadowedContentViewController" id="Kkc-Hk-UOr"/>
                     </connections>
                 </windowController>
@@ -1018,13 +1028,13 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="eY6-l1-jJG">
-                                <rect key="frame" x="0.0" y="67" width="650" height="59"/>
+                                <rect key="frame" x="0.0" y="238" width="630" height="208"/>
                                 <subviews>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="eL3-U5-KRs">
-                                        <rect key="frame" x="0.0" y="0.0" width="315" height="59"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="305" height="208"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ebL-aL-rYF">
-                                                <rect key="frame" x="18" y="-3" width="341" height="65"/>
+                                                <rect key="frame" x="18" y="72" width="341" height="65"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="65" id="Bbq-tc-Tqv"/>
                                                     <constraint firstAttribute="width" constant="337" id="nsT-c9-gtb"/>
@@ -1036,7 +1046,7 @@
                                                 </textFieldCell>
                                             </textField>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HvP-FG-Apf">
-                                                <rect key="frame" x="18" y="-27" width="341" height="16"/>
+                                                <rect key="frame" x="18" y="48" width="341" height="16"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="16" id="JND-CJ-1MC"/>
                                                     <constraint firstAttribute="width" constant="337" id="RZa-b8-CFX"/>
@@ -1056,13 +1066,13 @@
                                         </constraints>
                                     </customView>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="IZ6-am-TYJ">
-                                        <rect key="frame" x="315" y="0.0" width="315" height="59"/>
+                                        <rect key="frame" x="305" y="0.0" width="305" height="208"/>
                                         <subviews>
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="lXj-Ck-5sE">
-                                                <rect key="frame" x="5" y="-71" width="305" height="200"/>
+                                                <rect key="frame" x="5" y="4" width="295" height="200"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fy8-py-WDh">
-                                                        <rect key="frame" x="10" y="145" width="285" height="35"/>
+                                                        <rect key="frame" x="10" y="145" width="275" height="35"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="35" id="Cwx-DI-ktt"/>
                                                         </constraints>
@@ -1073,7 +1083,7 @@
                                                         </textFieldCell>
                                                     </textField>
                                                     <popUpButton translatesAutoresizingMaskIntoConstraints="NO" id="jum-Vf-qcZ">
-                                                        <rect key="frame" x="19" y="108" width="107" height="33"/>
+                                                        <rect key="frame" x="19" y="108" width="102" height="33"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="Mgc-ME-v5h"/>
                                                         </constraints>
@@ -1093,7 +1103,7 @@
                                                         </connections>
                                                     </popUpButton>
                                                     <popUpButton translatesAutoresizingMaskIntoConstraints="NO" id="jJW-Nr-DZA">
-                                                        <rect key="frame" x="179" y="108" width="107" height="33"/>
+                                                        <rect key="frame" x="174" y="108" width="102" height="33"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="Krj-Dp-wc5"/>
                                                         </constraints>
@@ -1113,7 +1123,7 @@
                                                         </connections>
                                                     </popUpButton>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="B2f-SE-GNo">
-                                                        <rect key="frame" x="19" y="71" width="86" height="33"/>
+                                                        <rect key="frame" x="19" y="71" width="81" height="33"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="Edk-Q6-ODj"/>
                                                         </constraints>
@@ -1126,7 +1136,7 @@
                                                         </connections>
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kJw-eq-Kcg" customClass="StopButton" customModule="SautrogSystem" customModuleProvider="target">
-                                                        <rect key="frame" x="19" y="36" width="128" height="33"/>
+                                                        <rect key="frame" x="19" y="36" width="123" height="33"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="Il8-YU-BN3"/>
                                                         </constraints>
@@ -1139,7 +1149,7 @@
                                                         </connections>
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wDP-SF-Vos" customClass="StopButton" customModule="SautrogSystem" customModuleProvider="target">
-                                                        <rect key="frame" x="153" y="36" width="133" height="33"/>
+                                                        <rect key="frame" x="148" y="36" width="128" height="33"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="IOA-Pm-sJ0"/>
                                                         </constraints>
@@ -1152,7 +1162,7 @@
                                                         </connections>
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UgS-D5-w6k">
-                                                        <rect key="frame" x="132" y="111" width="41" height="25"/>
+                                                        <rect key="frame" x="127" y="111" width="41" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="39" id="k3Q-0h-sOR"/>
                                                             <constraint firstAttribute="height" constant="22" id="wDM-Jb-SM4"/>
@@ -1166,7 +1176,7 @@
                                                         </connections>
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uZ8-si-d42" customClass="StopButton" customModule="SautrogSystem" customModuleProvider="target">
-                                                        <rect key="frame" x="200" y="71" width="86" height="33"/>
+                                                        <rect key="frame" x="195" y="71" width="81" height="33"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="SEU-Ot-scJ"/>
                                                         </constraints>
@@ -1179,7 +1189,7 @@
                                                         </connections>
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TgW-A7-8OV">
-                                                        <rect key="frame" x="111" y="75" width="83" height="25"/>
+                                                        <rect key="frame" x="106" y="75" width="83" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="22" id="Foh-gI-7mf"/>
                                                             <constraint firstAttribute="width" constant="81" id="IOP-vJ-JZU"/>
@@ -1193,7 +1203,7 @@
                                                         </connections>
                                                     </button>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oWh-SF-yKQ">
-                                                        <rect key="frame" x="155" y="14" width="132" height="16"/>
+                                                        <rect key="frame" x="150" y="14" width="127" height="16"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="16" id="dha-Oq-3c5"/>
                                                         </constraints>
@@ -1204,7 +1214,7 @@
                                                         </textFieldCell>
                                                     </textField>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Q5D-aU-P06">
-                                                        <rect key="frame" x="18" y="14" width="133" height="16"/>
+                                                        <rect key="frame" x="18" y="14" width="128" height="16"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="16" id="bs2-3s-aJa"/>
                                                         </constraints>
@@ -1276,13 +1286,13 @@
                                 </constraints>
                             </customView>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="23" horizontalPageScroll="10" verticalLineScroll="23" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aei-MW-1Cl">
-                                <rect key="frame" x="0.0" y="0.0" width="650" height="67"/>
+                                <rect key="frame" x="0.0" y="0.0" width="630" height="238"/>
                                 <clipView key="contentView" drawsBackground="NO" id="i4G-Vm-lby">
-                                    <rect key="frame" x="1" y="1" width="648" height="65"/>
+                                    <rect key="frame" x="1" y="1" width="628" height="236"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="23" rowSizeStyle="automatic" headerView="p7m-J4-6RQ" viewBased="YES" id="mWr-TR-eZV">
-                                            <rect key="frame" x="0.0" y="0.0" width="777" height="37"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="777" height="208"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="17" height="0.0"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1657,8 +1667,8 @@
                                     </subviews>
                                     <nil key="backgroundColor"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="0.26356589147286824" horizontal="YES" id="ssy-76-YUI">
-                                    <rect key="frame" x="1" y="50" width="648" height="16"/>
+                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="ssy-76-YUI">
+                                    <rect key="frame" x="1" y="221" width="628" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="BD0-Mk-3Ky">
