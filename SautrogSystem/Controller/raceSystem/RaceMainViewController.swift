@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDelegate, NSTableViewDataSource {
+class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDelegate, NSTableViewDataSource, RaceUnlockViewControllerDelegate {
     
     // MARK: - Variables
     var appLocked: Bool = false
@@ -80,6 +80,7 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
         teams.append(Team(_teamID: 2, _teamName: "Team2", _teamFirstDriver: "2 Fahrer 1", _teamSecondDriver: "2 Fahrer 2", _teamSong: "Song 2", _teamCostume: "Kostüm 2", _teamRemarks: "Bemerkungen 2", _teamGender: 0, _teamAnnotations: 0, _teamPayedFee: 0))
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.appLockedResult(_:)), name: NSNotification.Name(rawValue: "appLocked"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.openUnlockWindow(_:)), name: NSNotification.Name("lockingRequest"), object: nil)
         
         teamListTableView.reloadData()
         initPopUpButtons()
@@ -452,6 +453,18 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
     @objc func appLockedResult(_ notification: NSNotification) {
         if let appLockedResult = notification.userInfo?["appLockedResult"] as? Bool {
             appLocked = appLockedResult
+        }
+    }
+    
+    @objc func openUnlockWindow(_ notification: NSNotification) {
+        performSegue(withIdentifier: "raceMainUnlockingSegue", sender: self)
+    }
+    
+    func sendUnlockingResult(result: Bool) {
+        print("received")
+        if result == false {
+            NotificationCenter.default.post(name: NSNotification.Name("appLocked"), object: nil, userInfo: ["appLockedResult": result])
+            print("notification sent")
         }
     }
 }
