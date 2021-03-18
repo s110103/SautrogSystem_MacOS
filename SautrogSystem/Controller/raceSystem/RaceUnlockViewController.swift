@@ -50,15 +50,12 @@ class RaceUnlockViewController: NSViewController {
     
     @IBAction func activateButtonTapped(_ sender: NSButton) {
         checkPassword()
-        dismiss(self)
     }
     
     // MARK: - Functions
     func keyDownEvent(event: NSEvent) -> NSEvent {
         if event.keyCode == 36 {
             checkPassword()
-            dismiss(self)
-            
         }
         return event
     }
@@ -70,10 +67,9 @@ class RaceUnlockViewController: NSViewController {
             result = false
         }
         passwordTextField.stringValue = ""
-                        
-        delegate?.sendUnlockingResult(result: result)
-        
-        print(result)
+                                        
+        NotificationCenter.default.post(name: NSNotification.Name("appLocked"), object: nil, userInfo: ["appLockedResult": result])
+        dismiss(self)
     }
     
 }

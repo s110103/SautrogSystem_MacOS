@@ -64,7 +64,7 @@ class RaceWindowController: NSWindowController {
             if appLockedResult == false {
                 appLocked = appLockedResult
                 updateLockingImage()
-                sendLockingResult(result: appLocked)
+                //sendLockingResult(result: appLocked)
                 print("notification received")
             }
         }

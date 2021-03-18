@@ -461,10 +461,8 @@ class RaceMainViewController: NSViewController, NSWindowDelegate, NSTableViewDel
     }
     
     func sendUnlockingResult(result: Bool) {
-        print("received")
         if result == false {
             NotificationCenter.default.post(name: NSNotification.Name("appLocked"), object: nil, userInfo: ["appLockedResult": result])
-            print("notification sent")
         }
     }
 }

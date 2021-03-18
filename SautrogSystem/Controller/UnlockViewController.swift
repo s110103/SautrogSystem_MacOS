@@ -50,15 +50,12 @@ class UnlockViewController: NSViewController {
     
     @IBAction func activateButtonTapped(_ sender: NSButton) {
         checkPassword()
-        dismiss(self)
     }
     
     // MARK: - Functions
     func keyDownEvent(event: NSEvent) -> NSEvent {
         if event.keyCode == 36 {
-            checkPassword()
-            dismiss(self)
-            
+            checkPassword()            
         }
         return event
     }
@@ -72,6 +69,7 @@ class UnlockViewController: NSViewController {
         passwordTextField.stringValue = ""
                         
         delegate?.sendLockingResult(result: result)
+        dismiss(self)
     }
     
 }
